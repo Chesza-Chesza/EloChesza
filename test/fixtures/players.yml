@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fide_number: 1
+  title: 1
+  name: MyString
+  last_name: MyString
+  fed: MyString
+  gender: 1
+  b_day: 2021-04-26
+  ranked_player: false
+  elo: 1
+  ranked_opponents: 1
+  k_value: 1
+  last_elo_update: 2021-04-26 15:41:42
+
+two:
+  fide_number: 1
+  title: 1
+  name: MyString
+  last_name: MyString
+  fed: MyString
+  gender: 1
+  b_day: 2021-04-26
+  ranked_player: false
+  elo: 1
+  ranked_opponents: 1
+  k_value: 1
+  last_elo_update: 2021-04-26 15:41:42

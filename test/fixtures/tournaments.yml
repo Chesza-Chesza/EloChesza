@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_code: 1
+  name: MyString
+  city: MyString
+  country: MyString
+  players_quantity: 1
+  start_date: 2021-04-26
+  end_date: 2021-04-26
+  total_rounds: 1
+  system: 1
+  time_control: 1
+  referee: one
+
+two:
+  event_code: 1
+  name: MyString
+  city: MyString
+  country: MyString
+  players_quantity: 1
+  start_date: 2021-04-26
+  end_date: 2021-04-26
+  total_rounds: 1
+  system: 1
+  time_control: 1
+  referee: two

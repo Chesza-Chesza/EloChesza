@@ -1,0 +1,77 @@
+<%= form_with(model: player) do |form| %>
+  <% if player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+        <% player.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fide_number %>
+    <%= form.number_field :fide_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.number_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fed %>
+    <%= form.text_field :fed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.number_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_day %>
+    <%= form.date_select :b_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ranked_player %>
+    <%= form.check_box :ranked_player %>
+  </div>
+
+  <div class="field">
+    <%= form.label :elo %>
+    <%= form.number_field :elo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ranked_opponents %>
+    <%= form.number_field :ranked_opponents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :k_value %>
+    <%= form.number_field :k_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_elo_update %>
+    <%= form.datetime_select :last_elo_update %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
