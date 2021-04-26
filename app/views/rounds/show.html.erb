@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @round.date %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @round.number %>
+</p>
+
+<p>
+  <strong>Tournament:</strong>
+  <%= @round.tournament_id %>
+</p>
+
+<%= link_to 'Edit', edit_round_path(@round) %> |
+<%= link_to 'Back', rounds_path %>

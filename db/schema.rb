@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_213511) do
+ActiveRecord::Schema.define(version: 2021_04_26_214516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,23 @@ ActiveRecord::Schema.define(version: 2021_04_26_213511) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "players", force: :cascade do |t|
+    t.integer "fide_number"
+    t.integer "title"
+    t.string "name", null: false
+    t.string "last_name"
+    t.string "fed", null: false
+    t.integer "gender"
+    t.date "b_day", null: false
+    t.boolean "ranked_player"
+    t.integer "elo", default: 0, null: false
+    t.integer "ranked_opponents"
+    t.integer "k_value"
+    t.datetime "last_elo_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "referees", force: :cascade do |t|
     t.integer "fide_id"
     t.string "name"
@@ -46,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_04_26_213511) do
     t.bigint "tournament_id", null: false
     t.index ["referee_id", "tournament_id"], name: "index_referees_tournaments_on_referee_id_and_tournament_id"
     t.index ["tournament_id", "referee_id"], name: "index_referees_tournaments_on_tournament_id_and_referee_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.date "date"
+    t.integer "number"
+    t.bigint "tournament_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
@@ -77,5 +103,6 @@ ActiveRecord::Schema.define(version: 2021_04_26_213511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rounds", "tournaments"
   add_foreign_key "tournaments", "referees"
 end
