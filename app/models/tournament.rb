@@ -1,3 +1,4 @@
 class Tournament < ApplicationRecord
-  has_and_belongs_to_many :referees
+  belongs_to :referees
+  has_many :rounds
 end

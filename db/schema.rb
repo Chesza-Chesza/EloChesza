@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_214516) do
+ActiveRecord::Schema.define(version: 2021_04_26_214652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2021_04_26_214516) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "player1_id", null: false
+    t.integer "player1_elo", default: 0
+    t.integer "player2_id"
+    t.integer "player2_elo", default: 0
+    t.integer "result", default: 0
+    t.integer "won"
+    t.integer "player1_rtng_change"
+    t.integer "player2_rtng_change"
+    t.bigint "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_games_on_round_id"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -103,6 +118,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_214516) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "rounds"
   add_foreign_key "rounds", "tournaments"
   add_foreign_key "tournaments", "referees"
 end
