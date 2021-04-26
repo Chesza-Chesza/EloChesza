@@ -1,3 +1,3 @@
 class Tournament < ApplicationRecord
-  belongs_to :referee
+  has_and_belongs_to_many :referees
 end
