@@ -1,59 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event code:</strong>
-  <%= @tournament.event_code %>
-</p>
+  <p>
+    <strong>Event code:</strong>
+    <%= @tournament.event_code %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tournament.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @tournament.name %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @tournament.city %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @tournament.city %>
+  </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @tournament.country %>
-</p>
+  <p>
+    <strong>Country:</strong>
+    <%= @tournament.country %>
+  </p>
 
-<p>
-  <strong>Players quantity:</strong>
-  <%= @tournament.players_quantity %>
-</p>
+  <p>
+    <strong>Players quantity:</strong>
+    <%= @tournament.players_quantity %>
+  </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @tournament.start_date %>
-</p>
+  <p>
+    <strong>Start date:</strong>
+    <%= @tournament.start_date %>
+  </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @tournament.end_date %>
-</p>
+  <p>
+    <strong>End date:</strong>
+    <%= @tournament.end_date %>
+  </p>
 
-<p>
-  <strong>Total rounds:</strong>
-  <%= @tournament.total_rounds %>
-</p>
+  <p>
+    <strong>Total rounds:</strong>
+    <%= @tournament.total_rounds %>
+  </p>
 
-<p>
-  <strong>System:</strong>
-  <%= @tournament.system %>
-</p>
+  <p>
+    <strong>System:</strong>
+    <%= @tournament.system %>
+  </p>
 
-<p>
-  <strong>Time control:</strong>
-  <%= @tournament.time_control %>
-</p>
+  <p>
+    <strong>Time control:</strong>
+    <%= @tournament.time_control %>
+  </p>
 
-<p>
-  <strong>Referee:</strong>
-  <%= @tournament.referee_id %>
-</p>
+  <p>
+    <strong>Referee:</strong>
+    <%= @tournament.referee_id %>
+  </p>
 
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
+  <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+  <%= link_to 'Back', tournaments_path %>
+</div>
