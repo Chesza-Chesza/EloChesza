@@ -1,2 +1,2 @@
-module Elo
+module Elo::Elo
 end
