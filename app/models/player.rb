@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
+  has_many :games, through: :gameplayer
   enum gender: [:W, :M]
   enum title: [:GM, :IM, :FM, :CM, :NM, :WGM, :WIM, :WFM, :WCM]
   
@@ -9,7 +10,6 @@ class Player < ApplicationRecord
   end
 
   def rtng_change
-    self.map {|game| Elo::Calculate.rtng_change(game.player1_elo, game.player2_elo, game.result, k_value, percentage)}
-    #Elo::Calculate.rtng_change(elo1, elo2, points, k_value, percentage)
+    self.map { |game| Elo::Calculate.rtng_change(game.player1_elo, game.player2_elo, game.result, k_value, percentage) }
   end
 end
