@@ -2,9 +2,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Games</h1>
-
-  <table class="table table-bordered" id="table_games">
-    <thead>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+ <thead class="thead-dark">
       <tr>
         <th>Player1</th>
         <th>Player1 elo</th>
@@ -42,5 +42,6 @@
   <br>
   <div clas="container">
     <%= link_to 'New Game', new_game_path %>
+  </div>
   </div>
 </div>
