@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   devise_for :admin_users
   devise_for :users
   resources :homes
+
+  get 'dashboard', to: 'homes#dashboard'
   root 'homes#index'
 end

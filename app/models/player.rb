@@ -9,14 +9,7 @@ class Player < ApplicationRecord
   end
 
   def rtng_change
-    self.map
+    self.map {|game| Elo::Calculate.rtng_change(game.player1_elo, game.player2_elo, game.result, k_value, percentage)}
+    #Elo::Calculate.rtng_change(elo1, elo2, points, k_value, percentage)
   end
 end
-
-
-# una vez tengas los juagdores
-
-# @players = Player.all ---> options_for_select / options_from_collection_for_select
-
-# seleccionar el id del player 1 y  buscar un player con ese id
-# seleccionar todos los id de player2 donde el plyer1 sea el id anterior y buscar todos los player con esos id
