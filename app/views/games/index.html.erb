@@ -7,13 +7,9 @@
  <thead class="thead-dark">
       <tr>
         <th>Player1</th>
-        <th>Player1 elo</th>
         <th>Player2</th>
-        <th>Player2 elo</th>
         <th>Result</th>
         <th>Won</th>
-        <th>Player1 rtng change</th>
-        <th>Player2 rtng change</th>
         <th>Round</th>
         <th colspan="3"></th>
       </tr>
@@ -23,13 +19,9 @@
       <% @games.each do |game| %>
         <tr>
           <td><%= game.player1_id %></td>
-          <td><%= game.player1_elo %></td>
           <td><%= game.player2_id %></td>
-          <td><%= game.player2_elo %></td>
           <td><%= game.result %></td>
           <td><%= game.won %></td>
-          <td><%= game.player1_rtng_change %></td>
-          <td><%= game.player2_rtng_change %></td>
           <td><%= game.round_id %></td>
           <td><%= link_to 'Show', game %></td>
           <td><%= link_to 'Edit', edit_game_path(game) %></td>
