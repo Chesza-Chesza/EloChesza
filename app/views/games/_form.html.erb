@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with(model: game, class: "form-group mb-4" ) do |form| %>
+  <%= form_with(model: game, class: "form-group mb-4") do |form| %>
     <% if game.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>

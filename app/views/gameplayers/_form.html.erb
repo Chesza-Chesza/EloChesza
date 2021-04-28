@@ -1,37 +1,39 @@
-<%= form_with(model: gameplayer) do |form| %>
-  <% if gameplayer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gameplayer.errors.count, "error") %> prohibited this gameplayer from being saved:</h2>
+<div class="container">
+  <%= form_with(model: gameplayer, class: "form-group mb-4") do |form| %>
+    <% if gameplayer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(gameplayer.errors.count, "error") %> prohibited this gameplayer from being saved:</h2>
 
-      <ul>
-        <% gameplayer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% gameplayer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :elo %>
+      <%= form.number_field :elo, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rtng_change %>
+      <%= form.number_field :rtng_change, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :game_id %>
+      <%= form.text_field :game_id, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :player_id %>
+      <%= form.text_field :player_id, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-info my-3' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :elo %>
-    <%= form.number_field :elo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rtng_change %>
-    <%= form.number_field :rtng_change %>
-  </div>
-
-  <div class="field">
-    <%= form.label :game_id %>
-    <%= form.text_field :game_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player_id %>
-    <%= form.text_field :player_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
