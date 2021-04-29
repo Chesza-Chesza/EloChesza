@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>Referees</h1>
@@ -29,3 +30,40 @@
 <br>
 
 <%= link_to 'New Referee', new_referee_path %>
+=======
+<div class="container">  
+  <p id="notice"><%= notice %></p>
+
+  <h1>Referees</h1>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead class="thead-dark">
+      <tr>
+        <th>Fide</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @referees.each do |referee| %>
+        <tr>
+          <td><%= referee.fide_id %></td>
+          <td><%= referee.name %></td>
+          <td><%= referee.title %></td>
+          <td><%= link_to 'Show', referee %></td>
+          <td><%= link_to 'Edit', edit_referee_path(referee) %></td>
+          <td><%= link_to 'Destroy', referee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Referee', new_referee_path %>
+  </div>
+</div>
+>>>>>>> test

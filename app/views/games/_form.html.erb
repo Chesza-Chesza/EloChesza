@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
     <div id="error_explanation">
@@ -60,3 +61,49 @@
     <%= form.submit %>
   </div>
 <% end %>
+=======
+<div class="container">
+  <%= form_with(model: game, class: "form-group mb-4") do |form| %>
+    <% if game.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+        <ul>
+          <% game.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :player1_id %>
+      <%= form.number_field :player1_id, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :player2_id %>
+      <%= form.number_field :player2_id, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :result %>
+      <%= form.number_field :result, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :won %>
+      <%= form.number_field :won, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :round_id %>
+      <%= form.text_field :round_id, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-info my-3' %>
+    </div>
+  <% end %>
+</div>
+>>>>>>> test

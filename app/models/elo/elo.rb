@@ -1,0 +1,2 @@
+module Elo::Elo
+end

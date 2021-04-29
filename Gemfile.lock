@@ -171,7 +171,11 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+<<<<<<< HEAD
     rexml (3.2.5)
+=======
+    rexml (3.2.4)
+>>>>>>> test
     ruby-graphviz (1.2.5)
       rexml
     rubyzip (2.3.0)
