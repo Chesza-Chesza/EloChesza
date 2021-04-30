@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<%= form_with(model: player) do |form| %>
-=======
 <%= form_with(model: player, class: "form-group mb-4") do |form| %>
->>>>>>> test
   <% if player.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
@@ -17,117 +13,65 @@
 
   <div class="field">
     <%= form.label :fide_number %>
-<<<<<<< HEAD
-    <%= form.number_field :fide_number %>
-=======
     <%= form.number_field :fide_number, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :title %>
-<<<<<<< HEAD
-    <%= form.number_field :title %>
-=======
     <%= form.number_field :title, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :name %>
-<<<<<<< HEAD
-    <%= form.text_field :name %>
-=======
     <%= form.text_field :name, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :last_name %>
-<<<<<<< HEAD
-    <%= form.text_field :last_name %>
-=======
     <%= form.text_field :last_name, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :fed %>
-<<<<<<< HEAD
-    <%= form.text_field :fed %>
-=======
     <%= form.text_field :fed, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :gender %>
-<<<<<<< HEAD
-    <%= form.number_field :gender %>
-=======
     <%= form.number_field :gender, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :b_day %>
-<<<<<<< HEAD
-    <%= form.date_select :b_day %>
-=======
     <%= form.date_select :b_day, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :ranked_player %>
-<<<<<<< HEAD
-    <%= form.check_box :ranked_player %>
-=======
     <%= form.check_box :ranked_player, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :elo %>
-<<<<<<< HEAD
-    <%= form.number_field :elo %>
-=======
     <%= form.number_field :elo, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :ranked_opponents %>
-<<<<<<< HEAD
-    <%= form.number_field :ranked_opponents %>
-=======
     <%= form.number_field :ranked_opponents, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :k_value %>
-<<<<<<< HEAD
-    <%= form.number_field :k_value %>
-=======
     <%= form.number_field :k_value, class: "form-control" %>
->>>>>>> test
   </div>
 
   <div class="field">
     <%= form.label :last_elo_update %>
-<<<<<<< HEAD
-    <%= form.datetime_select :last_elo_update %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-=======
     <%= form.datetime_select :last_elo_update, class: "form-control" %>
   </div>
 
   <div class="actions">
     <%= form.submit :class => 'btn btn-info my-3'  %>
->>>>>>> test
   </div>
 <% end %>

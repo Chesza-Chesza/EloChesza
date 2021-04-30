@@ -1,67 +1,3 @@
-<<<<<<< HEAD
-<%= form_with(model: game) do |form| %>
-  <% if game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
-      <ul>
-        <% game.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :player1_id %>
-    <%= form.number_field :player1_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player1_elo %>
-    <%= form.number_field :player1_elo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player2_id %>
-    <%= form.number_field :player2_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player2_elo %>
-    <%= form.number_field :player2_elo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :result %>
-    <%= form.number_field :result %>
-  </div>
-
-  <div class="field">
-    <%= form.label :won %>
-    <%= form.number_field :won %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player1_rtng_change %>
-    <%= form.number_field :player1_rtng_change %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player2_rtng_change %>
-    <%= form.number_field :player2_rtng_change %>
-  </div>
-
-  <div class="field">
-    <%= form.label :round_id %>
-    <%= form.text_field :round_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-=======
 <div class="container">
   <%= form_with(model: game, class: "form-group mb-4") do |form| %>
     <% if game.errors.any? %>
@@ -106,4 +42,3 @@
     </div>
   <% end %>
 </div>
->>>>>>> test
