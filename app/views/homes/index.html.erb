@@ -2,6 +2,7 @@
   <p id="notice"><%= notice %></p>
   
   <h1>Homes</h1>
+
   
   <table>
     <thead>
@@ -10,8 +11,76 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-  
     <tbody>
+    <div class="container">
+        <div id="resultado"></div>
+        <br />
+        <table id="tabladatos" width=360  cellpadding=2 cellspacing=2>
+            <tr>
+                <td>Elo propio (Rating)</td>
+                <td><input class="form-control" id="elo1" /></td>
+            </tr>
+            <tr>
+                <td>Elo contrario (Rc)</td>
+                <td><input id="elo2" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td>Resultado (W)</td>
+                <td><select name="puntos" id="puntos" class="form-control" type="select">
+          <option>1</option>
+          <option>0.5</option>
+          <option>0</option>
+        </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>K <sub>val</sub></td>
+                <td><select name="valork" id="valork" class="form-control" type="select">
+        <option selected="selected">20</option>
+        <option>40</option>
+        <option>10</option>
+        <option>15</option>
+        <option>25</option>
+        <option>30</option>
+      </select>
+                    <script type="application/javascript">
+                        document.getElementById("valork").selectedIndex = 0;
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan=2 align=center><br /><button class= 'btn btn-light rounded-pill'>Calculate</button></td>
+            </tr>
+        </table>
+
+        <div id="dif_400">* Al ser la diferencia de rating mayor de &plusmn;400, se aplica como diferencia límite &plusmn;400.<br>Más información en el FIDE Handbook B02.8</div>
+        <br /> Porcentaje esperado
+        <div id="porcentaje"></div>
+        K <sub>val</sub>
+        <div id="kcoeficiente"></div>
+        Nuevo elo
+        <div id="nuevoelo"></div>
+
+        <div class="col-md-6">
+            <h3>Help notes:</h3>
+            <ul>
+                <li><strong>Rating - Rating of a player.</strong></li>
+                <li><strong>Rc - Opponent rating.</strong></li>
+                <li><strong>W - Score.</strong></li>
+                <li><strong>K val - K</strong> is the development coefficient.</li>
+                <li><strong>K</strong> is the development coefficient.</li><br>
+                <li><strong>K = 40</strong> for a player new to the rating list until he has completed events with at least 30 games.</li>
+                <li><strong>K = 20</strong> as long as a player's rating remains under 2400.</li>
+                <li><strong>K = 10</strong> once a player's published rating has reached 2400 and remains at that level subsequently, even if the rating drops below 2400.</li>
+                <li><strong>K = 40</strong> for all players until their 18th birthday, as long as their rating remains under 2300.</li>
+                <li><strong>K = 20</strong> for RAPID and BLITZ ratings all players.</li>
+            </ul>
+        </div>
+  </div>
+    
       <% @homes.each do |home| %>
         <tr>
           <td><%= home.index %></td>
