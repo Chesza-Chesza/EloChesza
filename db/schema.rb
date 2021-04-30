@@ -40,9 +40,13 @@ ActiveRecord::Schema.define(version: 2021_04_28_194038) do
 
   create_table "games", force: :cascade do |t|
     t.integer "player1_id", null: false
+    t.integer "player1_elo", default: 0
     t.integer "player2_id"
+    t.integer "player2_elo", default: 0
     t.integer "result", default: 0
     t.integer "won"
+    t.integer "player1_rtng_change"
+    t.integer "player2_rtng_change"
     t.bigint "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
