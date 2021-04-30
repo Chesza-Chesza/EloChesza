@@ -56,6 +56,13 @@ class HomesController < ApplicationController
     end
   end
 
+  def dashboard
+    respond_to do |format|
+      format.html
+      format.csv { send_data @user.to_csv }
+    end    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home
