@@ -1,4 +1,4 @@
-<%= form_with(model: home) do |form| %>
+<%= form_with(model: home, class: "form-group mb-4")) do |form| %>
   <% if home.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(home.errors.count, "error") %> prohibited this home from being saved:</h2>
@@ -12,9 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :index %>
-    <%= form.text_field :index %>
+    <%= form.label :elo1 %>
+    <%= form.number_field :elo_1, class: "form-control" %>
   </div>
+  
+  <div class="field">
+    <%= form.label :elo2 %>  
+    <%= form.number_field :elo_2, class: "form-control", placeholder: 'Opponent Elo' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :points %>
+    <%= form.select :points, [ 1, 0.5, 0 ], {selected: params[:points]} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :k_value %>
+    <%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
+  before_action :set_game
 
   # GET /games or /games.json
   def index
@@ -13,6 +14,8 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    @round = Round.find(params[:round_id])
+
   end
 
   # GET /games/1/edit
@@ -21,11 +24,12 @@ class GamesController < ApplicationController
 
   # POST /games or /games.json
   def create
+    @round = Round.find(params[:round_id])
     @game = Game.new(game_params)
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to @game, notice: "Game was successfully created." }
+        format.html { redirect_to tournament_rounds_path, notice: "Game was successfully created." }
         format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,6 +64,10 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
+    end
+
+    def set_round
+      @round = Round.find(params[:round_id])
     end
 
     # Only allow a list of trusted parameters through.

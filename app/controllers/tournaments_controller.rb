@@ -17,6 +17,7 @@ class TournamentsController < ApplicationController
 
   # GET /tournaments/1/edit
   def edit
+    @rounds = Round.all
   end
 
   # POST /tournaments or /tournaments.json

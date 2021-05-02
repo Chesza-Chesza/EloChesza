@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-<h1>Editing Game</h1>
-
-<%= render 'form', game: @game %>
-
-<%= link_to 'Show', @game %> |
-<%= link_to 'Back', games_path %>
-=======
 <div class="container">
   <h1>Editing Game</h1>
   
   <%= render 'form', game: @game %>
   
-  <%= link_to 'Show', @game %> |
-  <%= link_to 'Back', games_path %>
+  <%= link_to 'Show', round_game_path(@round, @game) %> |
+  <%= link_to 'Back', round_games_path %>
 </div>
->>>>>>> test

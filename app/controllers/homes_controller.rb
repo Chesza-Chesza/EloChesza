@@ -65,6 +65,13 @@ class HomesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def download_csv
+      respond_to do |format|
+        format.csv { send_data csv_file, type: 'application/csv; header=present', disposition: "attachment", filename: "output.csv"  }
+      end
+    end
+    
+    
     def set_home
       @home = Home.find(params[:id])
     end
