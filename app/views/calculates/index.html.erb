@@ -1,0 +1,50 @@
+<div class="container index_home">
+  <p id="notice"><%= notice %></p>
+  
+  <h1>Chesza</h1>
+  
+  <div class="container calculator my-5">
+    <table class="form-group calulator_table">
+    <tbody>
+      <div id="result"></div>
+      <br />
+
+      <%= form_with(model: @calculate, class: "form-group mb-4") do |form| %>
+  
+        <tr><td><%= form.number_field :player, class: "form-control", placeholder: 'My elo' %></td></tr>
+        <tr><td><%= form.number_field :opponent, class: "form-control", placeholder: 'Opp. Elo' %></td></tr>
+        <tr><td><%= form.select :points, [ 1, 0.5, 0 ], {selected: params[:points]}, class:'form-control' %></td></tr>
+        <tr><td><%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %></td></tr>  
+        
+        <tr><td><%= form.submit 'Calculate', class: 'btn btn-dark btn-block rounded mb-4' %></td></tr>
+    </tbody>
+  </table>
+</div>  
+<% end %>
+
+      <div id="dif_400">* Al ser la diferencia de rating mayor de &plusmn;400, se aplicacomo diferencia límite &plusmn;400.<br>Más información en el FIDE Handbook B02.8<div>
+      <br /> Porcentaje esperado
+      <div id="porcentaje"></div>
+      K <sub>val</sub>
+      <div id="kcoeficiente"></div>
+      Nuevo elo
+      <div id="nuevoelo"></div>
+
+      <div class="col-md-6">
+        <h3>Help notes:</h3>
+        <ul>
+          <li><strong>Rating - Rating of a player.</strong></li>
+          <li><strong>Rc - Opponent rating.</strong></li>
+          <li><strong>W - Score.</strong></li>
+          <li><strong>K val - K</strong> is the development coefficient.</li>
+          <li><strong>K</strong> is the development coefficient.</li><br>
+          <li><strong>K = 40</strong> for a player new to the rating list until he hascompleted events with at least 30 games.</li>
+          <li><strong>K = 20</strong> as long as a player's rating remains under 2400.<li>
+          <li><strong>K = 10</strong> once a player's published rating has reached 2400and remains at that level subsequently, even if the rating drops below 2400.<li>
+          <li><strong>K = 40</strong> for all players until their 18th birthday, as longas their rating remains under 2300.</li>
+          <li><strong>K = 20</strong> for RAPID and BLITZ ratings all players.</li>
+        </ul>
+
+  
+  <br>
+</div>

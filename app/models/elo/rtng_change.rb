@@ -15,7 +15,7 @@ class Elo::RtngChange
 
   def compute
     @difference = @difference > 400 ? 400 : @difference < -400 ? -400 : @difference
-
+    
     if @difference < 0
       @difference = @difference.abs
       @percentage = calculateLowerPercentage

@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   resources :gameplayers
   resources :players
   resources :homes
+  resources :calculates
 
-  get 'dashboard', to: 'homes#dashboard'
-  get 'marce', to: 'homes#marce'
+  get 'dashboard', to: 'tournaments#dashboard'
+  get 'file', to: 'tournaments#file'
   root 'homes#index'
 end

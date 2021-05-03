@@ -57,8 +57,21 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def dashboard
+    respond_to do |format|
+      format.html
+      format.csv { send_data @user.to_csv }
+    end    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
+    def download_csv
+      respond_to do |format|
+        format.csv { send_data csv_file, type: 'application/csv; header=present', disposition: "attachment", filename: "output.csv"  }
+      end
+    end
+    
     def set_tournament
       @tournament = Tournament.find(params[:id])
     end
