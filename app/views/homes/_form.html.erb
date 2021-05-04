@@ -1,38 +1,83 @@
-<%= form_with(model: home, class: "form-group mb-4") do |form| %>
-  <% if home.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(home.errors.count, "error") %> prohibited this home from being saved:</h2>
+<div class="container">
+  <%= form_with(model: home, class: "form-group mb-4") do |form| %>
+    <% if home.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(home.errors.count, "error") %> prohibited this home from being saved:</h2>
 
-      <ul>
-        <% home.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% home.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h3>Tournaments</h3>
+    <div class="field">
+      <%= form.number_field :event_code, class: "form-control", placeholder: "Event code" %>
+    </div>
+    <div class="field">
+      <%= form.text_field :name, class: "form-control", placeholder: "Name"%>
+    </div>
+    <div class="field">
+      <%= form.text_field :city, class: "form-control", placeholder: "City" %>
+    </div>
+    <div class="field">
+      <%= form.text_field :country, class: "form-control", placeholder: "Country" %>
+    </div>
+    <div class="field">
+      <%= form.number_field :players_quantity, class: "form-control", placeholder: "Players quantity" %>
+    </div>
+    <div class="field">
+      <%= form.date_field :start_date, class: "form-control", placeholder: "Start date" %>
+    </div>
+    <div class="field">
+      <%= form.date_field :end_date, class: "form-control", placeholder: "End date" %>
+    </div>
+    <div class="field">
+      <%= form.number_field :total_rounds, class: "form-control", placeholder: "Total rounds"  %>
+    </div>
+    <div class="field">
+      <%= form.select :system, ['swiss', 'round robin', 'team', 'other'], {selected: params[:system]}, class: "form-control", placeholder: "System" %>
+    </div>
+    <div class="field">
+      <%= form.select :time_control, ['standard', 'rapid', 'blitz'], {selected: params[:time_control]}, class: "form-control", placeholder: "Time control" %>
+    </div>
+    <div class="field">
+      <%= form.text_field :referee_id, class: "form-control", placeholder: "Referee id" %>
+    </div><br>
+
+
+    <h3>Rounds</h3>
+    <div class="field">
+      <%= form.date_field :date, class: "form-control", placeholder: "Date" %>
+    </div>
+    <div class="field">
+      <%= form.number_field :number, class: "form-control", placeholder: "number"  %>
+    </div>
+    <div class="field">
+      <%= form.text_field :tournament_id, class: "form-control", placeholder: "Tournament_id"  %>
+    </div><br>
+
+    <h3>Games</h3>
+      <div class="field">
+      <%= form.number_field :player1_id, class: "form-control", placeholder: "Player1_id" %>
+    </div>
+    <div class="field">
+      <%= form.number_field :player2_id, class: "form-control", placeholder: "Player2_id" %>
+    </div>
+    <div class="field">
+      <%= form.select :result, [1, 0.5, 0], {selected: params[:result]}, class: "form-control", placeholder: "Result" %>
+    </div>
+    <div class="field">
+      <%= form.number_field :won, class: "form-control", placeholder: "Won" %>
+    </div>
+    <div class="field">
+      <%= form.text_field :round_id, class: "form-control", placeholder: "Round_id" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :elo1 %>
-    <%= form.number_field :elo_1, class: "form-control" %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :elo2 %>  
-    <%= form.number_field :elo_2, class: "form-control", placeholder: 'Opponent Elo' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :points %>
-    <%= form.select :points, [ 1, 0.5, 0 ], {selected: params[:points]} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :k_value %>
-    <%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

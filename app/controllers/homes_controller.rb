@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = Home.all
+    
   end
 
   # GET /homes/1 or /homes/1.json
@@ -56,11 +56,29 @@ class HomesController < ApplicationController
     end
   end
 
+  def dashboard
+    @tournaments = Tournament.all
+    @rounds = Round.all
+    @games = Game.all
+    @gameplayers = Gameplayer.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @user.to_csv }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.   
     def set_home
       @home = Home.find(params[:id])
+    end
+
+    def download_csv
+      respond_to do |format|
+        format.csv { send_data csv_file, type: 'application/csv; header=present', disposition: "attachment", filename: "output.csv"  }
+      end
     end
 
     # Only allow a list of trusted parameters through.

@@ -4,23 +4,17 @@
   <h1>Chesza</h1>
   
   <div class="container calculator my-5">
-    <table class="form-group calulator_table">
-    <tbody>
-      <div id="result"></div>
-      <br />
+    <%= form_with scope: :calculate, model: @calculate, local: false, class: "form-group mb-4" do |form| %>
+      <div class="field"><%= form.number_field :player, class: "form-control", placeholder: 'My elo' %></div>
+      <div class="field"><%= form.number_field :opponent, class: "form-control", placeholder: 'Opp. Elo' %></div>
+      <div class="field"><%= form.select :points, [ 1, 0.5, 0 ], { selected: params[:points] }, class:'form-control' %></div>
+      <div class="field"><%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %></div>  
+      <div class="field"><%= form.submit 'Calculate', class: 'btn btn-dark btn-block rounded mb-4' %></div>
+    <% end %>
+    <div class="result"></div>
+  </div>
 
-      <%= form_with(model: @calculate, class: "form-group mb-4") do |form| %>
   
-        <tr><td><%= form.number_field :player, class: "form-control", placeholder: 'My elo' %></td></tr>
-        <tr><td><%= form.number_field :opponent, class: "form-control", placeholder: 'Opp. Elo' %></td></tr>
-        <tr><td><%= form.select :points, [ 1, 0.5, 0 ], {selected: params[:points]}, class:'form-control' %></td></tr>
-        <tr><td><%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %></td></tr>  
-        
-        <tr><td><%= form.submit 'Calculate', class: 'btn btn-dark btn-block rounded mb-4' %></td></tr>
-    </tbody>
-  </table>
-</div>  
-<% end %>
 
       <div id="dif_400">* Al ser la diferencia de rating mayor de &plusmn;400, se aplicacomo diferencia límite &plusmn;400.<br>Más información en el FIDE Handbook B02.8<div>
       <br /> Porcentaje esperado
