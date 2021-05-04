@@ -21,6 +21,7 @@ class Home < ApplicationRecord
       io.read
     end
   end
-  
+  enum system: %i[:Swiss :Round_Robin :Teams :Other]
+  enum time_control: %i[:Standard :Rapid :Blitz]
   
 end

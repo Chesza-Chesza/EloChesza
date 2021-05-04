@@ -1,15 +1,14 @@
 class Elo::RtngChange
-  def initialize(player, opponent, points, k_value, percentage)
+  def initialize(player, opponent, points, k_value)
     @player = player
     @opponent = opponent
     @points = points
     @k_value = k_value
-    @percentage = percentage
     @difference = player - opponent
   end
 
-  def self.init(elo1, elo2, points, k_value, percentage)
-    data = self.new(elo1, elo2, points, k_value, percentage)
+  def self.init(elo1, elo2, points, k_value)
+    data = self.new(elo1, elo2, points, k_value)
     data.compute
   end
 
