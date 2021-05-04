@@ -60,7 +60,7 @@ class HomesController < ApplicationController
     @tournaments = Tournament.all
     @rounds = Round.all
     @games = Game.all
-    @gameplayers = Gameplayer.all
+    @gameplayers = Gameplayer.includes([:player, game: [:round]]).all
 
     respond_to do |format|
       format.html
