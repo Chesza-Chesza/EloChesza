@@ -20,8 +20,8 @@
           <td><%= round.date %></td>
           <td><%= round.number %></td>
           <td><%= round.tournament_id %></td>
-          <td><%= link_to 'Show', tournament_round_path(round, @tournament) %></td>
-          <td><%= link_to 'Edit', edit_tournament_round_path(round, @tournament) %></td>
+          <td><%= link_to 'Show', tournament_round_path(@tournament, round) %></td>
+          <td><%= link_to 'Edit', edit_tournament_round_path(@tournament, round) %></td>
           <td><%= link_to 'Destroy', @round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

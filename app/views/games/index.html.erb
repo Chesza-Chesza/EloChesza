@@ -23,8 +23,8 @@
           <td><%= game.result %></td>
           <td><%= game.won %></td>
           <td><%= game.round_id %></td>
-          <td><%= link_to 'Show', round_game_path(game, @round) %></td>
-          <td><%= link_to 'Edit', edit_round_game_path(game, @round) %></td>
+          <td><%= link_to 'Show', round_game_path(@round, game) %></td>
+          <td><%= link_to 'Edit', edit_round_game_path(@round, game) %></td>
           <td><%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
