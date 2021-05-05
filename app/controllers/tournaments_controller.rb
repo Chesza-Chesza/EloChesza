@@ -13,7 +13,6 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new
   def new
     @tournament = Tournament.new
-    @tournament.rounds.build
   end
 
   # GET /tournaments/1/edit
@@ -66,6 +65,6 @@ class TournamentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tournament_params
-      params.require(:tournament).permit(:event_code, :name, :city, :country, :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id, :rounds_attributes => [:date, :number, :tournament_id, :games_attributes => [:player1_id, :player2_id, :result, :won, :round_id]])
+      params.require(:tournament).permit(:event_code, :name, :city, :country, :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id)
     end
 end

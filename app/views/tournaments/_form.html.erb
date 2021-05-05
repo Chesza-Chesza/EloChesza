@@ -48,38 +48,8 @@
       <%= form.text_field :referee_id, class: "form-control" %>
     </div>
 
-    <%= form.fields_for :rounds do |r|%>
-      <div class="field">
-        <%= r.date_field :date, class: "form-control", placeholder: "Date" %>
-      </div>
-      <div class="field">
-        <%= r.number_field :number, class: "form-control", placeholder: "number"  %>
-      </div>
-      <div class="field">
-        <%= r.text_field :tournament_id, class: "form-control", placeholder: "Tournament_id"  %>
-      </div><br>
-    
-      <%= form.fields_for :games do |g|%>
-        <div class="field">
-          <%= g.number_field :player1_id, class: "form-control", placeholder: "Player1_id" %>
-        </div>
-        <div class="field">
-          <%= g.number_field :player2_id, class: "form-control", placeholder: "Player2_id" %>
-        </div>
-        <div class="field">
-          <%= g.select :result, [1, 0.5, 0], {selected: params[:result]}, class: "form-control", placeholder: "Result" %>
-        </div>
-        <div class="field">
-          <%= g.number_field :won, class: "form-control", placeholder: "Won" %>
-        </div>
-        <div class="field">
-          <%= g.text_field :round_id, class: "form-control", placeholder: "Round_id" %>
-        </div>
-      <% end %>
-    <% end %>
-
     <div class="actions">
-      <%= form.submit :class => 'btn btn-info my-3' %>
+      <%= form.submit :class => 'btn btn-dark btn-block rounded mb-4' %>
     </div>
   <% end %>
 </div>
