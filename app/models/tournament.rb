@@ -3,4 +3,5 @@ class Tournament < ApplicationRecord
   has_many :rounds
   enum system: %i[:Swiss :Round_Robin :Teams :Other]
   enum time_control: %i[:Standard :Rapid :Blitz]
+  accepts_nested_attributes_for :rounds
 end
