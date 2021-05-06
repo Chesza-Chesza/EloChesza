@@ -58,4 +58,10 @@
 
   <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
   <%= link_to 'Back', tournaments_path %>
+
+  <div class="py-3">
+    <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: 'btn btn-dark rounded my-3' %>
+  </div>
 </div>
+
+<%= render 'upload_csv' %>

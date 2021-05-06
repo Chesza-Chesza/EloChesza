@@ -1,6 +1,12 @@
 <div class="container">  
   <p id="notice"><%= notice %></p>
 
+     <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li><%= link_to 'Tournaments', tournaments_path, class:'breadcrumb-item' %></li>
+      </ol>
+    </nav>
+
   <h1>Tournaments</h1>
 
   <div class="table-responsive">
@@ -33,8 +39,8 @@
           <td><%= tournament.start_date %></td>
           <td><%= tournament.end_date %></td>
           <td><%= tournament.total_rounds %></td>
-          <td><%= tournament.system %></td>
           <td><%= tournament.time_control %></td>
+          <td><%= tournament.system %></td>
           <td><%= tournament.referee_id %></td>
           <td><%= link_to 'Show', tournament %></td>
           <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>

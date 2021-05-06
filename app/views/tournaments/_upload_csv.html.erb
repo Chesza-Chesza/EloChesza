@@ -1,0 +1,9 @@
+<%= form_with(model: @tournament, url: upload_data_games_tournament_path(@tournament), method: :post, class: "form-group mb-4") do |form| %>
+<div class="custom-file pb-5">
+  <input type="file" name="tournament[csv_file]" class="custom-file-input" id="customFileLang" lang="es">
+  <label class="custom-file-label" for="customFileLang">Upload file.csv</label>
+</div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-dark rounded mb-4' %>
+  </div>
+<% end %>
