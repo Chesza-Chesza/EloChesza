@@ -95,6 +95,7 @@
           </nav>
       </div>
       <div id="layoutSidenav_content">
+      <% if admin_user_signed_in? %>
           <main>
               <div class="container-fluid">
                   <h1 class="mt-4">Dashboard</h1>
@@ -271,6 +272,7 @@
                   </div>
               </div>
           </main>
+        <% end %>
           <footer class="py-4 bg-light mt-auto">
               <div class="container-fluid">
                   <div class="d-flex align-items-center justify-content-between small">

@@ -34,8 +34,9 @@
   </head>
 
   <body>
+    <div class="container body_container">
     <div class="sb-nav-fixed">
-      <nav class="navbar sb-topnav  navbar-expand navbar-light bg-transparent">
+      <nav class="container navbar sb-topnav  navbar-light bg-transparent">
       <a class="navbar-brand" href="index.html">Chesza</a>
       <!-- Navbar-->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -47,14 +48,16 @@
               <%= link_to 'User Sign up', user_session_path, class:'dropdown-item' %>
               <%= link_to 'Admin Log in', admin_user_session_path, class:'dropdown-item' %>
               <div class="dropdown-divider"></div>
-              <%= link_to 'Logout', destroy_user_session_path, class:'dropdown-item' %>
+              <% if user_signed_in? %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'dropdown-item' %>
+              <% end %>
             </div>
           </li>
         </ul>
       </nav>
     </div>
 
-    <div class="container body_container">
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
