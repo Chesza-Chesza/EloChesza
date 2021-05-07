@@ -27,8 +27,7 @@
         <tr>
           <td><%= player.fide_number %></td>
           <td><%= player.title %></td>
-          <td><%= player.name %></td>
-          <td><%= player.last_name %></td>
+          <td><%= player.full_name %></td>
           <td><%= player.fed %></td>
           <td><%= player.gender %></td>
           <td><%= player.b_day %></td>
@@ -47,6 +46,7 @@
 
   <br>
 
-  <%= link_to 'New Player', new_player_path %>
+  <%= link_to 'New Player', new_player_path, class: 'btn btn-dark rounded mb-4' %>
   </div>
 </div>
+

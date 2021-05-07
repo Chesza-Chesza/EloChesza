@@ -12,28 +12,37 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="field py-2">
       <%= form.number_field :player1_id, class: "form-control", placeholder: "Player1_id" %>
     </div>
 
-    <div class="field">
+    <div class="field py-2">
       <%= form.number_field :player2_id, class: "form-control", placeholder: "Player2_id" %>
     </div>
 
-    <div class="field">
+    <div class="field py-2">
       <%= form.number_field :result, class: "form-control", placeholder: "Result" %>
     </div>
 
-    <div class="field">
+    <div class="field py-2">
       <%= form.number_field :won, class: "form-control", placeholder: "Won" %>
     </div>
 
-    <div class="field">
+    <div class="field py-2">
       <%= form.text_field :round_id, class: "form-control", placeholder: "Round_id" %>
     </div>
 
     <div class="actions">
-      <%= form.submit :class => 'btn btn-info my-3' %>
+      <%= form.submit :class => 'btn btn-dark rounded mb-4' %>
     </div>
   <% end %>
 </div>
+<%= form_with(model: [@round, @game], method: :post, class: "form-group mb-4") do |form| %>
+<div class="custom-file pb-5">
+  <input type="file" name="game[csv_file]" class="custom-file-input" id="customFileLang" lang="es">
+  <label class="custom-file-label" for="customFileLang">Upload file.csv</label>
+</div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-dark rounded mb-4' %>
+  </div>
+<% end %>

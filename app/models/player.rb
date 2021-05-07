@@ -1,7 +1,7 @@
 class Player < ApplicationRecord
   has_many :games, through: :gameplayer
-  enum gender: [:W, :M]
-  enum title: [:GM, :IM, :FM, :CM, :NM, :WGM, :WIM, :WFM, :WCM]
+  enum gender: %i[f, m]
+  enum title: %i[gm, im, fm, cm, nm, wgm, wim, wfm, wcm]
   
   # scope :games_of_tournament, ->(id) { where(player1_id: id) }
 
@@ -20,7 +20,7 @@ class Player < ApplicationRecord
   end
 
   def full_name
-    "#{name} #{last_name}"
+    "#{first_name} #{last_name}"
   end
 
 end

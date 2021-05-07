@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   # GET /games or /games.json
   def index
-    @games = Game.all
+    @games = @round.games
   end
 
   # GET /games/1 or /games/1.json
@@ -14,8 +14,6 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-    @round = Round.find(params[:round_id])
-
   end
 
   # GET /games/1/edit
@@ -31,11 +29,18 @@ class GamesController < ApplicationController
       if @game.save
         format.html { redirect_to tournament_rounds_path, notice: "Game was successfully created." }
         format.json { render :show, status: :created, location: @game }
+        format.csv { send_data @game.to_csv }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
+    
+    
+    # respond_to do |format|
+    #   format.html
+    #   format.csv { send_data @user.to_csv }
+    # end
   end
 
   # PATCH/PUT /games/1 or /games/1.json
@@ -70,8 +75,14 @@ class GamesController < ApplicationController
       @round = Round.find(params[:round_id])
     end
 
+    def download_csv
+      respond_to do |format|
+        format.csv { send_data csv_file, type: 'application/csv; header=present', disposition: "attachment", filename: "output.csv"  }
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:player1_id, :player1_elo, :player2_id, :player2_elo, :result, :won, :player1_rtng_change, :player2_rtng_change, :round_id)
+      params.require(:game).permit(:player1_id, :player2_id, :result, :won, :round_id, :tournament_id, :file_csv)
     end
 end
