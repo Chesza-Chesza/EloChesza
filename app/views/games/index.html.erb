@@ -1,6 +1,13 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li><%= link_to 'Tournaments', tournaments_path, class:'breadcrumb-item' %></li>|
+        <li><%= link_to 'Games', round_games_path, class:'breadcrumb-item' %></li>
+      </ol>
+    </nav>
+
   <h1>Games</h1>
   <div class="table-responsive">
     <table class="table table-striped table-sm">
@@ -23,9 +30,9 @@
           <td><%= game.result %></td>
           <td><%= game.won %></td>
           <td><%= game.round_id %></td>
-          <td><%= link_to 'Show', game %></td>
-          <td><%= link_to 'Edit', edit_game_path(game) %></td>
-          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', round_game_path(@round, game) %></td>
+          <td><%= link_to 'Edit', edit_round_game_path(@round, game) %></td>
+          <td><%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -33,7 +40,7 @@
 
   <br>
     <div clas="container">
-      <%= link_to 'New Game', new_game_path %>
+      <%= link_to 'New Game', new_round_game_path, class: 'btn btn-dark rounded mb-4' %>
     </div>
   </div>
 </div>

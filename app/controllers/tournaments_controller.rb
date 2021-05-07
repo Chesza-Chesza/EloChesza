@@ -13,10 +13,12 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new
   def new
     @tournament = Tournament.new
+    @tournament.rounds.build
   end
 
   # GET /tournaments/1/edit
   def edit
+    @rounds = Round.all
   end
 
   # POST /tournaments or /tournaments.json
@@ -56,6 +58,16 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def upload_data_games
+    games_response = Import::Games.init(params[:csv_file].tempfile, @tournament)
+
+
+    # respond_to do |format|
+    #   format.html
+    #   format.csv { send_data @tournament.to_csv }
+    # end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tournament
@@ -64,6 +76,7 @@ class TournamentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tournament_params
-      params.require(:tournament).permit(:event_code, :name, :city, :country, :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id)
+      params.require(:tournament).permit(:event_code, :name, :city, :country, 
+        :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id)
     end
 end

@@ -16,6 +16,10 @@
     <%= @round.tournament_id %>
   </p>
 
-  <%= link_to 'Edit', edit_round_path(@round), class: "btn btn-light rounded-pill" %> |
-  <%= link_to 'Back', rounds_path, class: "btn btn-light rounded-pill" %>
+  <%= link_to 'Edit', edit_tournament_round_path(@round) %> |
+  <%= link_to 'Back', tournament_rounds_path %>
+
+  <div class="py-3">
+    <%= link_to 'New games', round_games_path(@round), class: 'btn btn-dark rounded my-4' %>
+  </div>
 </div>

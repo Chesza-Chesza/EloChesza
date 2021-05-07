@@ -1,5 +1,12 @@
- <div class="container">
+<div class="container">
   <p id="notice"><%= notice %></p>
+
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li><%= link_to 'Tournaments', tournaments_path, class:'breadcrumb-item' %></li>|
+        <li><%= link_to 'Rounds', tournament_rounds_path(@tournament), class:'breadcrumb-item' %></li>
+      </ol>
+    </nav>
 
   <h1>Rounds</h1>
 
@@ -20,9 +27,9 @@
           <td><%= round.date %></td>
           <td><%= round.number %></td>
           <td><%= round.tournament_id %></td>
-          <td><%= link_to 'Show', round %></td>
-          <td><%= link_to 'Edit', edit_round_path(round) %></td>
-          <td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', tournament_round_path(@tournament, round) %></td>
+          <td><%= link_to 'Edit', edit_tournament_round_path(@tournament, round) %></td>
+          <td><%= link_to 'Destroy', @round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -30,6 +37,7 @@
 
   <br>
 
-  <%= link_to 'New Round', new_round_path, class: "btn btn-light rounded-pill" %>
+  <%= link_to 'New Round', new_tournament_round_path, class: 'btn btn-dark rounded mb-4' %>
   </div>
+
 </div>

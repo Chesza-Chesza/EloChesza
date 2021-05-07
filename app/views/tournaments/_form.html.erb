@@ -1,5 +1,5 @@
 <div class="container">  
-  <%= form_with(model: tournament, class: "form-group mb-4") do |form| %>
+  <%= form_with(model: tournament, local: true, class: "form-group mb-4") do |form| %>
     <% if tournament.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
@@ -12,63 +12,47 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :event_code %>
-      <%= form.number_field :event_code, class: "form-control" %>
+    <div class="field pb-2">
+      <%= form.number_field :event_code, class: "form-control", placeholder: "Event code" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.text_field :name, class: "form-control", placeholder: "Name"%>
+    </div>
+    <div class="field pb-2">
+      <%= form.text_field :city, class: "form-control", placeholder: "City" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.text_field :country, class: "form-control", placeholder: "Country" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.number_field :players_quantity, class: "form-control", placeholder: "Players quantity" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.date_field :start_date, class: "form-control", placeholder: "Start date" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.date_field :end_date, class: "form-control", placeholder: "End date" %>
+    </div>
+    <div class="field pb-2">
+      <%= form.number_field :total_rounds, class: "form-control", placeholder: "Total rounds"  %>
+    </div>
+    
+    <div class="field pb-2">
+      <%= form.text_field :referee_id, class: "form-control", placeholder: "Referee"  %>
     </div>
 
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :city %>
-      <%= form.text_field :city, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :country %>
-      <%= form.text_field :country, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :players_quantity %>
-      <%= form.number_field :players_quantity, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :start_date %>
-      <%= form.date_select :start_date, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :end_date %>
-      <%= form.date_select :end_date, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :total_rounds %>
-      <%= form.number_field :total_rounds, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :system %>
-      <%= form.number_field :system, class: "form-control" %>
-    </div>
-
-    <div class="field">
+    <div class="field pb-2">
       <%= form.label :time_control %>
-      <%= form.number_field :time_control, class: "form-control" %>
+      <%= form.select :time_control, [['standard', :standard], ['rapid', :rapid], ['blitz', :blitz]], {selected: params[:time_control]}, class: "form-control", placeholder: "Time control" %>
     </div>
-
-    <div class="field">
-      <%= form.label :referee_id %>
-      <%= form.text_field :referee_id, class: "form-control" %>
+    
+    <div class="field pb-2">
+      <%= form.label :system %>
+      <%= form.select :system, [['swiss', :swiss], ['round robin', :round_robin], ['team', :team], ['other', :other]], {selected: params[:system]}, class: "form-control", placeholder: "System" %>
     </div>
 
     <div class="actions">
-      <%= form.submit :class => 'btn btn-light rounded-pill' %>
+      <%= form.submit :class => 'btn btn-dark my-3' %>
     </div>
   <% end %>
 </div>

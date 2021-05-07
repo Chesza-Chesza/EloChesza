@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
-  resources :gameplayers
-  resources :games
-  resources :rounds
-  resources :players
-  resources :tournaments
-  resources :referees
   devise_for :admin_users
   devise_for :users
+
+  resources :tournaments do
+    resources :rounds
+  end
+
+  resources :rounds do
+    resources :games
+  end
+  
+  resources :referees
+  resources :gameplayers
+  resources :players
   resources :homes
+  resources :calculates, only: %i[index create]
 
   get 'dashboard', to: 'homes#dashboard'
-  root 'homes#index'
+  get 'file', to: 'tournaments#file'
+  root 'calculates#index'
 end
