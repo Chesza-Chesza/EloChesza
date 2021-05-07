@@ -99,6 +99,7 @@ GEM
     choice (0.2.0)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    csv (3.1.2)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -254,6 +255,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara (>= 3.26)
+  csv
   devise
   dotenv-rails
   jbuilder (~> 2.7)

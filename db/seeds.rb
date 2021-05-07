@@ -1,6 +1,6 @@
 Referee.destroy_all
 Tournament.destroy_all
-Player.destroy_all
+#Player.destroy_all
 Round.destroy_all
 Game.destroy_all
 Gameplayer.destroy_all

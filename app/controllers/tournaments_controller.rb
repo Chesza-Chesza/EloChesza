@@ -59,10 +59,13 @@ class TournamentsController < ApplicationController
   end
 
   def upload_data_games
-    respond_to do |format|
-      format.html
-      format.csv { send_data @tournament.to_csv }
-    end
+    games_response = Import::Games.init(params[:csv_file].tempfile, @tournament)
+
+
+    # respond_to do |format|
+    #   format.html
+    #   format.csv { send_data @tournament.to_csv }
+    # end
   end
 
   private
@@ -74,6 +77,6 @@ class TournamentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tournament_params
       params.require(:tournament).permit(:event_code, :name, :city, :country, 
-        :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id, :gameplayers)
+        :players_quantity, :start_date, :end_date, :total_rounds, :system, :time_control, :referee_id)
     end
 end
