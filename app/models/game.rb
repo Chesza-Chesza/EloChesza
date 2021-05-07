@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :round
-  has_many :players, through: :gameplayer
+  has_many :players, through: :gameplayer, dependent: :destroy
   has_one_attached :csv_file
   
   def csv_file

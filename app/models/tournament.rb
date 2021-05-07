@@ -1,6 +1,6 @@
 class Tournament < ApplicationRecord
   has_and_belongs_to_many :referees
-  has_many :rounds
+  has_many :rounds, dependent: :destroy
   
   enum system: %i[swiss round_robin teams other]
   enum time_control: %i[standard rapid blitz]
