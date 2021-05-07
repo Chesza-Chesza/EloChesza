@@ -34,9 +34,10 @@
   </head>
 
   <body>
+  <div class="container body_container">
     <div class="sb-nav-fixed">
-      <nav class="navbar sb-topnav  navbar-expand navbar-light bg-transparent">
-      <a class="navbar-brand" href="index.html">Chesza</a>
+      <nav class="container navbar sb-topnav  navbar-light bg-transparent">
+      <a class="navbar-brand" href="#">Chesza</a>
       <!-- Navbar-->
       <ul class="navbar-nav ml-auto ml-md-0">
           <li class="nav-item dropdown">
@@ -53,12 +54,11 @@
         </ul>
       </nav>
     </div>
-
-    <div class="container body_container">
+        
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-    </div>
+  </div>
 
   </body>
 </html>

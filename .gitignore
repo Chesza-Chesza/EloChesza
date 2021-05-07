@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+players_list_foa.txt
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

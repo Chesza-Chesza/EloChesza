@@ -4,12 +4,16 @@ Rails.application.routes.draw do
 
   resources :tournaments do
     resources :rounds
+
+    member do
+      post 'upload_data_games', as: 'upload_data_games'
+    end
   end
 
   resources :rounds do
     resources :games
   end
-  
+
   resources :referees
   resources :gameplayers
   resources :players

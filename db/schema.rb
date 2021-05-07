@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_194038) do
+ActiveRecord::Schema.define(version: 2021_05_05_151430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +56,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_194038) do
   end
 
   create_table "gameplayers", force: :cascade do |t|
-    t.integer "elo"
-    t.integer "rtng_change"
+    t.float "rtng_change", default: 0.0
     t.bigint "game_id", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -40,13 +67,9 @@ ActiveRecord::Schema.define(version: 2021_04_28_194038) do
 
   create_table "games", force: :cascade do |t|
     t.integer "player1_id", null: false
-    t.integer "player1_elo", default: 0
     t.integer "player2_id"
-    t.integer "player2_elo", default: 0
-    t.integer "result", default: 0
-    t.integer "won"
-    t.integer "player1_rtng_change"
-    t.integer "player2_rtng_change"
+    t.float "result", default: 0.0
+    t.float "won", default: 0.0
     t.bigint "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,15 +84,15 @@ ActiveRecord::Schema.define(version: 2021_04_28_194038) do
 
   create_table "players", force: :cascade do |t|
     t.integer "fide_number"
-    t.integer "title"
-    t.string "name", null: false
+    t.integer "title", default: 0
+    t.string "first_name"
     t.string "last_name"
     t.string "fed", null: false
-    t.integer "gender"
-    t.date "b_day", null: false
-    t.boolean "ranked_player"
-    t.integer "elo", default: 0, null: false
-    t.integer "ranked_opponents"
+    t.integer "gender", default: 0
+    t.date "b_day"
+    t.boolean "ranked_player", default: true
+    t.integer "elo", default: 0
+    t.integer "ranked_opponents", default: 0
     t.integer "k_value"
     t.datetime "last_elo_update"
     t.datetime "created_at", precision: 6, null: false
@@ -129,6 +152,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_194038) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "gameplayers", "games"
   add_foreign_key "gameplayers", "players"
   add_foreign_key "games", "rounds"
