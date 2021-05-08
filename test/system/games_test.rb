@@ -22,7 +22,7 @@ class GamesTest < ApplicationSystemTestCase
     fill_in "Player2 rtng change", with: @game.player2_rtng_change
     fill_in "Result", with: @game.result
     fill_in "Round", with: @game.round_id
-    fill_in "Won", with: @game.won
+    fill_in "Winner", with: @game.winner
     click_on "Create Game"
 
     assert_text "Game was successfully created"
@@ -41,7 +41,7 @@ class GamesTest < ApplicationSystemTestCase
     fill_in "Player2 rtng change", with: @game.player2_rtng_change
     fill_in "Result", with: @game.result
     fill_in "Round", with: @game.round_id
-    fill_in "Won", with: @game.won
+    fill_in "Winner", with: @game.winner
     click_on "Update Game"
 
     assert_text "Game was successfully updated"

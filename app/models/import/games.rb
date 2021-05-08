@@ -1,5 +1,4 @@
 class Import::Games
-  
 
   def initialize(file, tournament)
     @file = file
@@ -14,47 +13,35 @@ class Import::Games
   def process_file
     csv = CSV.read(@file, headers: true, encoding: "ISO8859-1")
     csv.each do |row|
-      # byebug
-      #Player.where(fide_number: 6500072)
-
-      player1_id = Game.find(fide_number)
-      player2_id = Game.find(fide_number)
-      round_id = 1
-      date = date.today
-      n = 0
-      number = n + 1
-      elo = elo
+      @player1 = Player.find_by(fide_number: row['player1_id'])
+      @player1 ||= Player.create(fide_number: row['player1_id'])
       
-      Game.create!(player1_id: player1_id, player2_id: player2_id, round_id: round_id, won: row["won"], result: row["result"])
+      @player2 = Player.find_by(fide_number: row['player2_id'])
+      @player2 ||= Player.create(fide_number: row['player2_id'])
+      
+      result = row['result'].to_f
+      round_id = row['round_id'].to_i
 
-      round = Round.find(id)
-      if round.present?
-        round = round_id
-      else
-        Round.create!(date: date, number: number, tournament_id: @tournament)
+      game_result = result != 0.5 ? the_winner(round_id) : nil
+      current_round = @tournament.rounds.find_by(number: round_id)
+      round = current_round.present? ? current_round : Round.create!(date: Date.today, number: round_id, tournament: @tournament)
+
+      game = round.games.build(player1_id: @player1.id, 
+                        player2_id: @player2.id, 
+                        round_id: round_id, 
+                        winner: game_result,
+                        result: result)
+
+      players = [@player1, @player2]
+      players.each do |player|
+        game.gameplayers.build(player: player)
       end
 
-
-      player = Player.find(id)
-      if player.present?
-        player1_id = player_id
-      else
-        Player.create!(id: row["player1_id"])
-      end
-
-      Gameplayer.create!(id: row["player1_id"], elo: elo, game_id: game_id)
+      round.save
     end
-      
   end
-  flash.now[:message]="CSV Import Successful"
-end
 
-# en base al id del la ronda, buscarla
-# Si encuentro la ronda, la guardo en una variable, de lo contrario creo una ronda y le entrego ese id.
-# Una vez tengo en una variable la ronda/instancia nueva de ronda le asigno los valores 
-# necesario, recuerda el id del torneo se saca desde: @tournament
-# genero la instancia de game y le asigno los valores necesarios para su creación
-# En base al id del player, buscarlo y si no se encuentra se genera pero sin ranking
-# se asignan los valores correspondientes que vienen en el csv
-# una vez creadas las instancias, se guardan los elementos
-# se retorna una respuesta para entregarle al usaurio un feedback
+  def the_winner(id)
+    id == @player1.id ? @player1 : @player2
+  end
+end

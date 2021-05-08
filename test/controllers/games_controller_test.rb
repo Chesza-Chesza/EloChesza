@@ -17,7 +17,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create game" do
     assert_difference('Game.count') do
-      post games_url, params: { game: { player1_elo: @game.player1_elo, player1_id: @game.player1_id, player1_rtng_change: @game.player1_rtng_change, player2_elo: @game.player2_elo, player2_id: @game.player2_id, player2_rtng_change: @game.player2_rtng_change, result: @game.result, round_id: @game.round_id, won: @game.won } }
+      post games_url, params: { game: { player1_elo: @game.player1_elo, player1_id: @game.player1_id, player1_rtng_change: @game.player1_rtng_change, player2_elo: @game.player2_elo, player2_id: @game.player2_id, player2_rtng_change: @game.player2_rtng_change, result: @game.result, round_id: @game.round_id, winner: @game.winner } }
     end
 
     assert_redirected_to game_url(Game.last)
@@ -34,7 +34,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update game" do
-    patch game_url(@game), params: { game: { player1_elo: @game.player1_elo, player1_id: @game.player1_id, player1_rtng_change: @game.player1_rtng_change, player2_elo: @game.player2_elo, player2_id: @game.player2_id, player2_rtng_change: @game.player2_rtng_change, result: @game.result, round_id: @game.round_id, won: @game.won } }
+    patch game_url(@game), params: { game: { player1_elo: @game.player1_elo, player1_id: @game.player1_id, player1_rtng_change: @game.player1_rtng_change, player2_elo: @game.player2_elo, player2_id: @game.player2_id, player2_rtng_change: @game.player2_rtng_change, result: @game.result, round_id: @game.round_id, winner: @game.winner } }
     assert_redirected_to game_url(@game)
   end
 

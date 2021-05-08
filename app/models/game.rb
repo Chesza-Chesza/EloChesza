@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   belongs_to :round
-  has_many :players, through: :gameplayer, dependent: :destroy
+  has_many :gameplayers
+  has_many :players, through: :gameplayers, dependent: :destroy
   has_one_attached :csv_file
   
   def csv_file
@@ -23,7 +24,6 @@ class Game < ApplicationRecord
   def result_of(player)
     return self.result if self.result == 0.5
 
-    player.id == self.won ? 1 : 0
+    player.id == self.winner ? 1 : 0
   end
 end
-

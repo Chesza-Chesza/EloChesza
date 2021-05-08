@@ -1,7 +1,5 @@
-File.readlines(File.join(Rails.root, 'db', 'seeds', 'players_list_foa.txt' )).each_with_index do |line, index|
+File.readlines(File.join(Rails.root, 'db', 'seeds', 'players_filtered.txt' )).each_with_index do |line, index|
   if index > 0
-    # puts line
-
     fide_number = line[0..14].strip
     next if Player.find_by(fide_number: fide_number).present?
 
@@ -10,7 +8,7 @@ File.readlines(File.join(Rails.root, 'db', 'seeds', 'players_list_foa.txt' )).ea
     gender = line[79..82].strip.downcase == 'f' ? 0 : 1
     
     plyr = Player.create(fide_number: fide_number, 
-                  title: line[83..88].strip, 
+                  title: line[83..88].strip.downcase, 
                   first_name: first_name,
                   last_name: last_name,
                   fed: line[76..78].strip, 
@@ -19,8 +17,8 @@ File.readlines(File.join(Rails.root, 'db', 'seeds', 'players_list_foa.txt' )).ea
                   elo: line[113..118].strip, 
                   ranked_opponents: line[119..122].strip, 
                   k_value: line[134..138].strip, 
-                  last_elo_update:'2021-04-26')
-    puts "#{plyr.first_name} #{plyr.first_name}: #{plyr.fide_number}"
+                  last_elo_update: '2021-04-26')
+    puts "#{plyr.first_name} #{plyr.last_name}: #{plyr.fide_number}"
   end
 end
 

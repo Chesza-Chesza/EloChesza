@@ -70,11 +70,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
     t.integer "player1_id", null: false
     t.integer "player1_elo", default: 0
     t.integer "player2_id"
-    t.integer "player2_elo", default: 0
-    t.integer "result", default: 0
-    t.integer "won"
-    t.integer "player1_rtng_change"
-    t.integer "player2_rtng_change"
+    t.float "result", default: 0.0
+    t.bigint "winner"
     t.bigint "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -92,16 +89,17 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
     t.integer "title"
     t.string "name", null: false
     t.string "last_name"
-    t.string "fed", null: false
-    t.integer "gender"
-    t.date "b_day", null: false
-    t.boolean "ranked_player"
-    t.integer "elo", default: 0, null: false
-    t.integer "ranked_opponents"
+    t.string "fed"
+    t.integer "gender", default: 0
+    t.date "b_day"
+    t.boolean "ranked_player", default: true
+    t.integer "elo", default: 0
+    t.integer "ranked_opponents", default: 0
     t.integer "k_value"
     t.datetime "last_elo_update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["fide_number"], name: "index_players_on_fide_number"
   end
 
   create_table "referees", force: :cascade do |t|
