@@ -1,6 +1,7 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: %i[ show edit update destroy ]
   before_action :set_tournament
+  before_action :authenticate_admin_user!
 
   # GET /rounds or /rounds.json
   def index
