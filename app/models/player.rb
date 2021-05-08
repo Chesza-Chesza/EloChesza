@@ -1,7 +1,8 @@
 class Player < ApplicationRecord
-  has_many :games, through: :gameplayer
-  enum gender: %i[f, m]
-  enum title: %i[gm, im, fm, cm, nm, wgm, wim, wfm, wcm]
+  has_many :gameplayers
+  has_many :games, through: :gameplayers
+  enum gender: %i[f m]
+  enum title: %i[gm im fm cm nm wgm wim wfm wcm]
   
   # scope :games_of_tournament, ->(id) { where(player1_id: id) }
 

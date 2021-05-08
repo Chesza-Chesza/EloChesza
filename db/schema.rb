@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
     t.integer "player1_id", null: false
     t.integer "player2_id"
     t.float "result", default: 0.0
-    t.float "won", default: 0.0
+    t.bigint "winner"
     t.bigint "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
     t.datetime "last_elo_update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["fide_number"], name: "index_players_on_fide_number"
   end
 
   create_table "referees", force: :cascade do |t|

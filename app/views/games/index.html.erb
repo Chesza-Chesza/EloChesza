@@ -16,7 +16,7 @@
           <th>Player1</th>
           <th>Player2</th>
           <th>Result</th>
-          <th>Won</th>
+          <th>Winner</th>
           <th>Round</th>
           <th colspan="3"></th>
         </tr>
@@ -28,11 +28,11 @@
           <td><%= game.player1_id %></td>
           <td><%= game.player2_id %></td>
           <td><%= game.result %></td>
-          <td><%= game.won %></td>
+          <td><%= game.winner %></td>
           <td><%= game.round_id %></td>
           <td><%= link_to 'Show', round_game_path(@round, game) %></td>
           <td><%= link_to 'Edit', edit_round_game_path(@round, game) %></td>
-          <td><%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', [@round, game], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

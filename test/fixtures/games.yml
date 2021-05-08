@@ -6,7 +6,7 @@ one:
   player2_id: 1
   player2_elo: 1
   result: 1
-  won: 1
+  winner: 1
   player1_rtng_change: 1
   player2_rtng_change: 1
   round: one
@@ -17,7 +17,7 @@ two:
   player2_id: 1
   player2_elo: 1
   result: 1
-  won: 1
+  winner: 1
   player1_rtng_change: 1
   player2_rtng_change: 1
   round: two

@@ -3,7 +3,7 @@ class GameplayersController < ApplicationController
 
   # GET /gameplayers or /gameplayers.json
   def index
-    @gameplayers = Gameplayer.all
+    @gameplayers = Gameplayer.includes(:player, :game).all
   end
 
   # GET /gameplayers/1 or /gameplayers/1.json
@@ -64,6 +64,6 @@ class GameplayersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gameplayer_params
-      params.require(:gameplayer).permit(:elo, :rtng_change, :game_id, :player_id)
+      params.require(:gameplayer).permit(:rtng_change, :game_id, :player_id)
     end
 end

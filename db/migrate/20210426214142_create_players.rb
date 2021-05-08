@@ -1,7 +1,7 @@
 class CreatePlayers < ActiveRecord::Migration[6.1]
   def change
     create_table :players do |t|
-      t.integer :fide_number
+      t.integer :fide_number, index: true
       t.integer :title, default: 0
       t.string :first_name
       t.string :last_name

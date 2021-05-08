@@ -13,16 +13,6 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :elo %>
-      <%= form.number_field :elo, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :rtng_change %>
-      <%= form.number_field :rtng_change, class: "form-control" %>
-    </div>
-
-    <div class="field">
       <%= form.label :game_id %>
       <%= form.text_field :game_id, class: "form-control" %>
     </div>
@@ -30,6 +20,11 @@
     <div class="field">
       <%= form.label :player_id %>
       <%= form.text_field :player_id, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rtng_change %>
+      <%= form.number_field :rtng_change, class: "form-control" %>
     </div>
 
     <div class="actions">

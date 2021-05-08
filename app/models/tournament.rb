@@ -1,12 +1,12 @@
 class Tournament < ApplicationRecord
-  has_and_belongs_to_many :referees
-  has_many :rounds, dependent: :destroy
+  has_and_belongs_to_many :referees, dependent: :destroy
+  has_many :rounds
   
   enum system: %i[swiss round_robin teams other]
   enum time_control: %i[standard rapid blitz]
 
   def self.to_csv
-    attributes = %w{player1_id	player2_id	result	won	round_id	tournament_id}
+    attributes = %w{player1_id	player2_id	result	winner	round_id	tournament_id}
     CSV.generate(headers: true) do |csv|
       csv << attributes
       

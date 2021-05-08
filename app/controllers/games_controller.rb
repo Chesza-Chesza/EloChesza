@@ -60,7 +60,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to @game, notice: "Game was successfully destroyed." }
+      format.html { redirect_to [@game.round, @game], notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -83,6 +83,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:player1_id, :player2_id, :result, :won, :round_id, :tournament_id, :file_csv)
+      params.require(:game).permit(:player1_id, :player2_id, :result, :winner, :round_id, :tournament_id, :file_csv)
     end
 end

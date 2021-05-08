@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: %i[ show edit update destroy ]
+  before_action :set_tournament, only: %i[ show edit update destroy upload_data_games ]
 
   # GET /tournaments or /tournaments.json
   def index

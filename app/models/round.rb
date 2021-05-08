@@ -1,4 +1,4 @@
 class Round < ApplicationRecord
   belongs_to :tournament
-  has_many :games, dependent: :destroy
+  has_many :games
 end
