@@ -1,5 +1,6 @@
 class RefereesController < ApplicationController
   before_action :set_referee, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin_user!
 
   # GET /referees or /referees.json
   def index
