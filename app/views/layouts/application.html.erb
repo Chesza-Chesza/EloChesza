@@ -52,6 +52,9 @@
               <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Are you an Admin?', admin_user_session_path, class:'dropdown-item' %>
+                <% if admin_user_signed_in? %>
+                  <%= link_to 'Logout', destroy_admin_user_session_path, method: :delete, class:'dropdown-item' %>
+                <% end %>
               </div>
             </div>
           </li>
