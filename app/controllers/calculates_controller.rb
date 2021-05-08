@@ -10,7 +10,7 @@ class CalculatesController < ApplicationController
                                      calculate_params[:opponent].to_i, 
                                      calculate_params[:points].to_f, 
                                      calculate_params[:k_value].to_i)
-
+    
     respond_to do |format|
       format.js
     end
