@@ -18,7 +18,7 @@ File.readlines(File.join(Rails.root, 'db', 'seeds', 'players_filtered.txt' )).ea
                   ranked_opponents: line[119..122].strip, 
                   k_value: line[134..138].strip, 
                   last_elo_update: '2021-04-26')
-    puts "#{plyr.first_name} #{plyr.first_name}: #{plyr.fide_number}"
+    puts "#{plyr.first_name} #{plyr.last_name}: #{plyr.fide_number}"
   end
 end
 

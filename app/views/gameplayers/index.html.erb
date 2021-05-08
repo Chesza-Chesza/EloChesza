@@ -18,7 +18,7 @@
       <% @gameplayers.each do |gameplayer| %>
         <tr>
           <td><%= gameplayer.game_id %></td>
-          <td><%= gameplayer.player.fide_number %></td>
+          <td><%= gameplayer.player.full_name %></td>
           <td><%= gameplayer.rtng_change %></td>
           <td><%= link_to 'Show', gameplayer %></td>
           <td><%= link_to 'Edit', edit_gameplayer_path(gameplayer) %></td>

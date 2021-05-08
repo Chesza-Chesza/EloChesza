@@ -7,7 +7,7 @@ Gameplayer.destroy_all
 
 Referee.create!([{ id: 1, name: 'Alexis Murillo', fide_id: 5678, title: 1 }])
 
-Tournament.create!([{ id: 1, event_code: 2541, name: 'SJ Open', city: 'San José', country: 'CRC', players_quantity: 8, system: 1, start_date: '12-12-2021', end_date: '12-24-2021', total_rounds: 7, time_control: 1 , referee_id: 1 }])
+Tournament.create!([{ id: 1, event_code: 2541, name: 'SJ Open', city: 'San José', country: 'CRC', players_quantity: 8, system: 1, start_date: '12-12-2021', end_date: '12-24-2021', total_rounds: 3, time_control: 1 , referee_id: 1 }])
 
 Round.create!([
   { id: 1, date: '12-12-2021', number: 1, tournament_id: 1 },
@@ -33,9 +33,9 @@ Game.create!([
   { id: 2, player1_id: 2, player2_id: 6, result: 1, winner: 2, round_id: 1 },
   { id: 3, player1_id: 3, player2_id: 7, result: 1, winner: 3, round_id: 1 },
   { id: 4, player1_id: 4, player2_id: 8, result: 1, winner: 4, round_id: 1 },
-  { id: 5, player1_id: 1, player2_id: 3, result: 1, winner: 5, round_id: 2 },
-  { id: 6, player1_id: 2, player2_id: 4, result: 1, winner: 6, round_id: 2 },
-  { id: 7, player1_id: 1, player2_id: 2, result: 1, winner: 7, round_id: 3 }
+  { id: 5, player1_id: 1, player2_id: 3, result: 1, winner: 1, round_id: 2 },
+  { id: 6, player1_id: 2, player2_id: 4, result: 1, winner: 2, round_id: 2 },
+  { id: 7, player1_id: 1, player2_id: 2, result: 1, winner: 1, round_id: 3 }
 ])
 
 Gameplayer.create!([
@@ -44,6 +44,7 @@ Gameplayer.create!([
   { player_id: 1, game_id: 7 },
   { player_id: 2, game_id: 2 },
   { player_id: 2, game_id: 6 },
+  { player_id: 2, game_id: 7 },
   { player_id: 3, game_id: 3 },
   { player_id: 3, game_id: 5 },
   { player_id: 4, game_id: 4 },

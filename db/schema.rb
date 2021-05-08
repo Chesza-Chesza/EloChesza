@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
     t.integer "title", default: 0
     t.string "first_name"
     t.string "last_name"
-    t.string "fed", null: false
+    t.string "fed"
     t.integer "gender", default: 0
     t.date "b_day"
     t.boolean "ranked_player", default: true
