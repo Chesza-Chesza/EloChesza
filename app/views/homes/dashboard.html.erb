@@ -219,8 +219,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%#= render 'round', round: @rounds, as: round %>
-
+                                    
                                     <% @rounds.map do |round| %>
                                         <%= render 'round', round: round %>
                                     <% end %>
@@ -243,7 +242,7 @@
                                 </thead>
                                 <tbody>
                                   <% @games.map do |game| %>
-                                  <%= render 'game', game: game %>
+                                  <%= render 'shared/game', game: game %>
                                   <% end %>
                                   <%= link_to 'New', new_home_path %>
                                 </tbody>
@@ -266,7 +265,8 @@
                                   <%= link_to 'New', new_home_path %>
                                 </tbody>
                               </table>
-                          </div>
+
+                            </div>
                       </div>
                   </div>
               </div>
