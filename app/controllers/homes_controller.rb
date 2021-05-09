@@ -4,7 +4,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    
+  
   end
 
   # GET /homes/1 or /homes/1.json
@@ -62,6 +62,8 @@ class HomesController < ApplicationController
     @rounds = Round.all
     @games = Game.all
     @gameplayers = Gameplayer.includes([:player, game: [:round]]).all
+    @player_stats = Gameplayer.joins(:player).group("players.elo").count
+    @chartz = Gameplayer.joins(:game).group("games.winner").count
 
     respond_to do |format|
       format.html
