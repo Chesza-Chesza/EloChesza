@@ -175,96 +175,41 @@
                           </div>
                       </div>
                   </div>
+ 
+                   <h3>Tournaments</h3>
                   <div class="card mb-4">
-                      <div class="card-header">
-                          <i class="fas fa-table mr-1"></i>
+                    <div class="card-header">
+                      <i class="fas fa-table mr-1"></i>
                           DataTable Example
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <h3>Tournaments</h3>
-                                <thead>
-                                    <tr>
-                                        <th>Event code</th>
-                                        <th>Name</th>
-                                        <th>City</th>
-                                        <th>Country</th>
-                                        <th>Players quantity</th>
-                                        <th>Start date</th>
-                                        <th>End date</th>
-                                        <th>Total rounds</th> 
-                                        <th>System</th>
-                                        <th>Time control</th>
-                                        <th>Referee</th>
-                                        <th colspan="3"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  <% @tournaments.map do |tournament| %>
-                                  <%= render 'tournament', tournament: tournament %>
-                                  <% end %>
-                                  <%= link_to 'New', new_home_path %>
-                                </tbody>
-                              </table>
-                              
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <h3>Rounds</h3>
-                                <thead>
-                                    <tr>
-                                      <th>Date</th>
-                                      <th>Number</th>
-                                      <th>Tournament</th>
-                                      <th colspan="3"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                    <% @rounds.map do |round| %>
-                                        <%= render 'round', round: round %>
-                                    <% end %>
-                                  
-                                  <%= link_to 'New', new_home_path %>
-                                </tbody>
-                              </table>
+                    </div>
+                    <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Event code</th>
+                          <th>Name</th>
+                          <th>City</th>
+                          <th>Country</th>
+                          <th>Players quantity</th>
+                          <th>Start date</th>
+                          <th>End date</th>
+                          <th>Total rounds</th> 
+                          <th>System</th>
+                          <th>Time control</th>
+                          <th>Referee</th>
+                          <th colspan="3"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%= render @tournaments %>
+                      </tbody>
+                      <%= link_to 'New Tournament', new_tournament_path %>
+                    </table>
+                  </div>
+                </div>  
+              </div> 
 
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <h3>Games</h3>
-                                <thead>
-                                    <tr>
-                                      <th>Player1</th>
-                                      <th>Player2</th>
-                                      <th>Result</th>
-                                      <th>Winner</th>
-                                      <th>Round</th>
-                                      <th colspan="3"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  <% @games.map do |game| %>
-                                  <%= render 'shared/game', game: game %>
-                                  <% end %>
-                                  <%= link_to 'New', new_home_path %>
-                                </tbody>
-                              </table>
-
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <h3>GamePlayer</h3>
-                                <thead>
-                                    <tr>
-                                      <th>Game</th>
-                                      <th>Player</th>
-                                      <th>Rtng change</th>
-                                      <th colspan="3"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  <% @gameplayers.map do |gameplayer| %>
-                                  <%= render 'gameplayer', gameplayer: gameplayer%>
-                                  <% end %>
-                                  <%= link_to 'New', new_home_path %>
-                                </tbody>
-                              </table>
 
                             </div>
                       </div>
