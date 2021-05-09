@@ -1,17 +1,16 @@
 <div class="container index_home">
   <p id="notice"><%= notice %></p>
   
-  <h1>Chesza</h1>
     <div class="container py-5">
       <div class="row">
-        <div class="col-md-4 calculator my-6">
+        <div class="col-lg-4 calculator my-6">
           <%= form_with scope: :calculate, model: @calculate, local: false, class: "form-group my-4" do |form| %>
-          <div class="field mb-3"><%= form.number_field :player, class: "form-control", placeholder: 'My elo' %></div>
-          <div class="field mb-3"><%= form.number_field :opponent, class: "form-control", placeholder: 'Opp. Elo' %></div>
-          <div class="field mb-3"><%= form.select :points, [ 1, 0.5, 0 ], { selected: params[:points] }, class:'form-control' %></div>
-          <div class="field mb-3"><%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %></div>  
-          <div class="field"><%= form.submit 'Calculate', class: 'btn btn-dark btn-block rounded mb-4' %></div>
-            <% end %>
+            <div class="field mb-3"><%= form.number_field :player, class: "form-control", placeholder: 'My elo' %></div>
+            <div class="field mb-3"><%= form.number_field :opponent, class: "form-control", placeholder: 'Opp. Elo' %></div>
+            <div class="field mb-3"><%= form.select :points, [ 1, 0.5, 0 ], { selected: params[:points] }, class:'form-control' %></div>
+            <div class="field mb-3"><%= form.select :k_value, [ 40, 30, 20, 15, 10], {selected: params[:k_value]}, class:'form-control', placeholder: 'Select k' %></div>  
+            <div class="field"><%= form.submit 'Calculate', class: 'btn btn-dark btn-block rounded mb-4' %></div>
+          <% end %>
           <div class="result"></div>
         </div>
   
@@ -34,17 +33,7 @@
   </div>
 
   <div class="container">
-    <div class="dif_400 col-md-12">
-      <p>* Al ser la diferencia de rating mayor de &plusmn;400, se aplicacomo diferencia límite &plusmn;400. Más información en el FIDE Handbook B02.8</p>
-
-    <h4> Porcentaje esperado</h4>
-    <div id="porcentaje"></div>
-
-    <h4>K <sub>val</sub></h4>
-    <div id="kcoeficiente"></div>
-
-    <h4>Nuevo elo</h4>
-    <div id="nuevoelo"></div>
+    <p>* A difference in rating of more than 400 points shall be counted for rating purposes as though it were a difference of 400 points. More information in FIDE Handbook B02.8</p>
   </div>
 </div>
 </div>
