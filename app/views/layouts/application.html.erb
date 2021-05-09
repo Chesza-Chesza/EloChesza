@@ -38,7 +38,7 @@
   <body>
     <div class="sb-nav-fixed">
       <nav class="container navbar sb-topnav  navbar-light bg-transparent">
-      <a class="navbar-brand" href="#">Chesza</a>
+      
       <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
           <li class="nav-item dropdown">
@@ -62,9 +62,12 @@
       </nav>
     </div>
 
-        
+     
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+    <div class="logo text-center mt-1">
+      <a href="#"><img src="<%= asset_path 'logo_chesza.svg' %>" width="200"/> </a>
+    </div>   
       <%= yield %>
 
 

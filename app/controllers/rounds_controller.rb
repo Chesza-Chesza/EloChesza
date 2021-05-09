@@ -1,11 +1,12 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: %i[ show edit update destroy ]
-  before_action :set_tournament
+  # before_action :set_tournament
   before_action :authenticate_admin_user!
 
   # GET /rounds or /rounds.json
   def index
-    @rounds = @tournament.rounds   
+    @tournament = Tournament.find(params[:tournament_id])
+    @rounds = @tournament.rounds
   end
 
   # GET /rounds/1 or /rounds/1.json
@@ -67,9 +68,9 @@ class RoundsController < ApplicationController
       @round = Round.find(params[:id])
     end
 
-    def set_tournament
-      @tournament = Tournament.find(params[:tournament_id])
-    end
+    # def set_tournament
+    #   @tournament = Tournament.find(params[:tournament_id])
+    # end
 
     def set_breadcrums
     end
