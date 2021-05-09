@@ -4,7 +4,7 @@
     <title>Chesza</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="author" content="Shirley Alvarado, Marcela Brenes ">
-    <meta name="description" content="Elo calculator app">
+    <meta name="description" content="Chesza Elo Calculator App">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,13 +23,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
   
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
-      
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-
+     
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -37,39 +32,52 @@
   </head>
 
   <body>
-    <div class="sb-nav-fixed">
-      <nav class="container navbar sb-topnav  navbar-light bg-transparent">
-      
-      <!-- Navbar-->
-        <ul class="navbar-nav ml-auto ml-md-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <%= link_to 'Home', root_path, class:'dropdown-item' %>
-              <div class="dropdown-divider"></div>
-                <%= link_to 'Users', new_user_session_path, class:'dropdown-item' %>
-              <% if user_signed_in? %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'dropdown-item' %>
-              <% end %>
-              <div class="dropdown-divider"></div>
-              <%= link_to 'Are you an Admin?', admin_user_session_path, class:'dropdown-item' %>
-                <% if admin_user_signed_in? %>
-                  <%= link_to 'Logout', destroy_admin_user_session_path, method: :delete, class:'dropdown-item' %>
-                <% end %>
-              </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-3">
+  <a class="navbar-brand" href="#">Chesza</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarScroll">
+    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+      <li class="nav-item active">
+         <%= link_to 'Home', root_path %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+      </li>
+    </ul>
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+           
+            <div class="dropdown-divider"></div>
+              <%= link_to 'Users', new_user_session_path, class:'dropdown-item' %>
+            <% if user_signed_in? %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'dropdown-item' %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Are you an Admin?', admin_user_session_path, class:'dropdown-item' %>
+            <% if admin_user_signed_in? %>
+              <%= link_to 'Logout', destroy_admin_user_session_path, method: :delete, class:'dropdown-item' %>
+            <% end %>
             </div>
-          </li>
-        </ul>
-      </nav>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </div>
+</nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <div class="logo text-center mt-5">
+      <a href="#"><img src="<%= asset_path 'logo_chesza.svg' %>" width="200"/> </a>
     </div>
 
-     
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <div class="logo text-center mt-1">
-      <a href="#"><img src="<%= asset_path 'logo_chesza.svg' %>" width="200"/> </a>
-    </div>   
-      <%= yield %>
+    <%= yield %>
 
 
   </body>
