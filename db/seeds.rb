@@ -54,3 +54,6 @@ Gameplayer.create!([
   { player_id: 7, game_id: 3 },
   { player_id: 8, game_id: 4 }
 ])
+
+
+AdminUser.create!([{email: 'admin@chesza.com', password: 123456}])

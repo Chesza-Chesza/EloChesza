@@ -8,6 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import Chartkick from 'chartkick'
+import Highcharts from 'highcharts'
+window.Highcharts = Highcharts
+
 import jQuery from "jquery"
 global.$ = global.jQuery = jQuery
 window.$ = window.jQuery = jQuery

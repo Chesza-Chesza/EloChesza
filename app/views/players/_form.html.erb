@@ -11,62 +11,84 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fide_number %>
-    <%= form.number_field :fide_number, class: "form-control" %>
-  </div>
+  <form>
+    <div class="container">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="field">
+            <%= form.label :fide_number %>
+            <%= form.number_field :fide_number, class: "form-control" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.number_field :title, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-6">
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.number_field :title, class: "form-control" %>
+        </div>
+      </div>
 
   <div class="field">
     <%= form.label :full_name %>
     <%= form.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :fed %>
-    <%= form.text_field :fed, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-6">
+        <div class="field">
+          <%= form.label :gender %>
+          <%= form.number_field :gender, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.number_field :gender, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-4">
+        <div class="field">
+          <%= form.label :b_day %>
+          <%= form.date_select :b_day, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :b_day %>
-    <%= form.date_select :b_day, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-3">
+        <div class="field">
+          <%= form.label :ranked_player %>
+          <%= form.check_box :ranked_player, class: "form-check" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :ranked_player %>
-    <%= form.check_box :ranked_player, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-4">
+        <div class="field">
+          <%= form.label :elo %>
+          <%= form.number_field :elo, class: "form-control" %>
+        </div>
+      </div>  
 
-  <div class="field">
-    <%= form.label :elo %>
-    <%= form.number_field :elo, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-6">
+        <div class="field">
+          <%= form.label :ranked_opponents %>
+          <%= form.number_field :ranked_opponents, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :ranked_opponents %>
-    <%= form.number_field :ranked_opponents, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-6">
+        <div class="field">
+          <%= form.label :k_value %>
+          <%= form.number_field :k_value, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :k_value %>
-    <%= form.number_field :k_value, class: "form-control" %>
-  </div>
+      <div class="form-group col-md-6">
+        <div class="field">
+          <%= form.label :last_elo_update %>
+          <%= form.datetime_select :last_elo_update, class: "form-control" %>
+        </div>
+      </div> 
+    </div>
 
-  <div class="field">
-    <%= form.label :last_elo_update %>
-    <%= form.datetime_select :last_elo_update, class: "form-control" %>
-  </div>
+      <div class="actions">
+        <%= form.submit :class => 'btn btn-dark rounded' %>
+      </div>
 
   <div class="actions">
     <%= form.submit :class => 'btn btn-dark my-3'  %>
   </div>
 <% end %>
+
