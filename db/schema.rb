@@ -56,8 +56,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
   end
 
   create_table "gameplayers", force: :cascade do |t|
-    t.integer "elo"
-    t.integer "rtng_change"
+    t.float "rtng_change", default: 0.0
     t.bigint "game_id", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
 
   create_table "games", force: :cascade do |t|
     t.integer "player1_id", null: false
-    t.integer "player1_elo", default: 0
     t.integer "player2_id"
     t.float "result", default: 0.0
     t.bigint "winner"
@@ -86,8 +84,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_151430) do
 
   create_table "players", force: :cascade do |t|
     t.integer "fide_number"
-    t.integer "title"
-    t.string "name", null: false
+    t.integer "title", default: 0
+    t.string "first_name"
     t.string "last_name"
     t.string "fed"
     t.integer "gender", default: 0
