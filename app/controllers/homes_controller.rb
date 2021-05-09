@@ -58,9 +58,10 @@ class HomesController < ApplicationController
   end
 
   def dashboard
+    @tournament = Tournament.includes(params[:tournament_id]).all
     @tournaments = Tournament.all
-    @rounds = Round.all
-    @games = Game.all
+    @rounds = Round.includes(params[:tournament_id]).all
+    @games = Game.includes(params[:tournament_id]).all
     @gameplayers = Gameplayer.includes([:player, game: [:round]]).all
     @player_stats = Gameplayer.joins(:player).group("players.elo").count
     @chartz = Gameplayer.joins(:game).group("games.winner").count
@@ -86,6 +87,6 @@ class HomesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_params
-      params.require(:home).permit(:index)
+      params.require(:home).permit(:index, :tournament_id)
     end
 end
