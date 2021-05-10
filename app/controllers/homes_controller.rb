@@ -4,7 +4,8 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    
+    @player_stats = Gameplayer.joins(:player).group("players.elo").count
+    @chartz = Gameplayer.joins(:game).group("games.winner").count
   end
 
   # GET /homes/1 or /homes/1.json
@@ -87,6 +88,6 @@ class HomesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_params
-      params.require(:home).permit(:index, :tournament_id)
+      params.require(:home).permit(:index)
     end
 end

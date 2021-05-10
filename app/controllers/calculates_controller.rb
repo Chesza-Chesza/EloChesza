@@ -2,7 +2,13 @@ class CalculatesController < ApplicationController
   # before_action :set_calculate, only: %i[ create show edit update destroy ]
 
   def index
-    #@calculates = Calculate.all
+    @tournament = Tournament.includes(params[:tournament_id]).all
+    @tournaments = Tournament.all
+    @rounds = Round.includes(params[:tournament_id]).all
+    @games = Game.includes(params[:tournament_id]).all
+    @gameplayers = Gameplayer.includes([:player, game: [:round]]).all
+    @player_stats = Gameplayer.joins(:player).group("players.elo").count
+    @chartz = Gameplayer.joins(:game).group("games.winner").count
   end
 
   def create 
@@ -10,7 +16,7 @@ class CalculatesController < ApplicationController
                                      calculate_params[:opponent].to_i, 
                                      calculate_params[:points].to_f, 
                                      calculate_params[:k_value].to_i)
-    
+     
     respond_to do |format|
       format.js
     end
