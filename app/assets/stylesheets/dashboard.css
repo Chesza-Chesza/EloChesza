@@ -10414,3 +10414,8 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
     background-color: #e9ecef;
 }
+
+.footer-icons {
+    margin: 0 auto;
+    text-align: center;
+}

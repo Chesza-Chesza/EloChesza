@@ -947,4 +947,4 @@ ID Number      Name                                                         Fed 
 1504720        Aarthun, Rune                                                NOR M                                1842  0   40                           1960  i   
 5080584        Aarthy, Sri S                                                IND F                                1689  0   20                           1994  wi  
 5088259        Aarti Chawla                                                 IND F                                                                       1986  w   
-25149288       Aarti Karsh                                                  IND F                                                                       2004  w                                                 IND M                                             1139  0   20              2008      
+25149288       Aarti Karsh                                                  IND F                                                                       2004  w   
