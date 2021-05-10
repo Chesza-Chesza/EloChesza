@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container c_dashboard">
   <% if admin_user_signed_in? %>
     <div id="layoutSidenav_content">
       
@@ -6,16 +6,9 @@
         <div class="container-fluid">
           <h1 class="mt-4">Dashboard</h1>
 
-          <!--UPLOAD FILE -->
-          <div class="custom-file pb-5">
-            <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-            <label class="custom-file-label" for="customFileLang">Upload file.csv</label>
-          </div>
-          <!--END UPLOAD FILE -->
-
           <!--DOWNLOAD FILE -->
           <div class="custom-file pb-5">
-            <label class="custom-file-label"><%= link_to "Download", file_path(format: "csv") %></label> 
+            <label class="custom-file-label"><%= link_to "Download csv template", file_path(format: "csv") %></label> 
           </div>
           <!--END DOWNLOAD FILE -->
 
@@ -78,4 +71,6 @@
       </main>
     </div>
   <% end %>
+</div>
+<div class="bloque">
 </div>

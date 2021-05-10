@@ -2,7 +2,6 @@ class CalculatesController < ApplicationController
   # before_action :set_calculate, only: %i[ create show edit update destroy ]
 
   def index
-    #@calculates = Calculate.all
   end
 
   def create 

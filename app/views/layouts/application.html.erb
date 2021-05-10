@@ -31,8 +31,9 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-3">
-    <a class="navbar-brand" href="#">Chesza</a>
+  <div class="container">
+  <nav class="navbar nav-background fixed-top navbar-expand-lg navbar-light">
+    <%= link_to 'Chesza', root_path, class: "navbar-brand"%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,19 +41,14 @@
       <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 200px;">
         <% if admin_user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Dashboard', root_path, class: "nav-link"%>
+            <%= link_to 'Dashboard', dashboard_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to 'Tournament', root_path, class: "nav-link"%></a>
+            <%= link_to 'Tournament', tournaments_path, class: "nav-link"%></a>
+          </li>
           </li>
           <li class="nav-item">
-            <%= link_to 'Rounds', root_path, class: "nav-link"%></a>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Games', root_path, class: "nav-link"%></a>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Results', root_path, class: "nav-link"%></a>
+            <%= link_to 'Results', gameplayers_path, class: "nav-link"%></a>
           </li>
         <% end %>
       </ul>
@@ -76,16 +72,17 @@
       </ul>
     </div>
   </nav>
-
+  </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="logo text-center mt-3">
+    <div class="logo text-center mt-5">
       <a href="#"><img src="<%= asset_path 'logo_chesza.svg' %>" width="200"/></a>
     </div>
     
     <%= yield %>
-    <footer class="py-4 bg-dark mt-auto">
+
+    <footer class="bg-dark py-3 mt-5">
       <div class="container-fluid">
         
         <div class="container footer-icons">
