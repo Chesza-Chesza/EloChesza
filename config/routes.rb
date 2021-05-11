@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resources :homes
   resources :calculates, only: %i[index create]
   
-  get '/players/show_by_id/:player:id', to: 'players#show_by_id', as: 'endpoint'
   get 'dashboard', to: 'homes#dashboard'
   get 'file', to: 'tournaments#file'
   root 'calculates#index'
