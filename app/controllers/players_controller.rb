@@ -6,9 +6,6 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     @players = Player.all
-    if params[:top_10]
-      @players = @players.order_by(elo: :desc).take(10)
-    end
   end
 
   # GET /players/1 or /players/1.json
