@@ -20,6 +20,16 @@ class PlayersController < ApplicationController
   def edit
   end
 
+  def api
+    player = Player.find(params[:id])
+    hash = {
+      name: player.full_name,
+      elo: player.elo,
+      player_id: player.id
+    }
+    render json: hash
+  end
+
   # POST /players or /players.json
   def create
     @player = Player.new(player_params)
