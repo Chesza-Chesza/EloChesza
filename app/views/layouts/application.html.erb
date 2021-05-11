@@ -21,7 +21,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
-  
      
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 
@@ -47,6 +46,17 @@
             <%= link_to 'Tournament', tournaments_path, class: "nav-link"%></a>
           </li>
           </li>
+          <% if @tournament.present? %>
+          <li class="nav-item">
+            <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: "nav-link"%></a>
+          </li>
+          <% end %>
+
+          <% if @round.present? %>
+          <li class="nav-item">
+            <%= link_to 'Games', round_games_path(@round), class: "nav-link"%></a>
+          </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to 'Results', gameplayers_path, class: "nav-link"%></a>
           </li>
@@ -82,7 +92,7 @@
     
     <%= yield %>
 
-    <footer class="bg-dark py-3 mt-5">
+    <footer class="bg-dark d-b py-3 mt-5">
       <div class="container-fluid">
         
         <div class="container footer-icons">
