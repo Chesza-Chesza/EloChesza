@@ -63,7 +63,8 @@
     <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: 'btn btn-dark rounded my-3' %>
   </div>
 
-  <%= render 'upload_csv' %>
+  <!-- For implementing in next version
+  <%= render 'upload_csv' %> -->
 
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <h3>Rounds</h3>
@@ -79,6 +80,6 @@
       <%= render @tournament.rounds %>
     </tbody>
   </table>
-    <%= link_to 'New', new_tournament_path, class: 'btn btn-dark rounded mb-4' %>
+    <%= link_to 'New', new_tournament_round_path(@tournament), class: 'btn btn-dark rounded mb-4' %>
 </div>
-
+<div class="bloque"></div>

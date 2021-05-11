@@ -1,0 +1,7 @@
+function fetchPlayers() {
+    return fetch(players_url).then(response => response.json())
+};
+
+document.addEventListener('turbolinks:load', () => {
+    fetchPlayers().then(results => console.log(results));
+});

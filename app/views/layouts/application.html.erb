@@ -21,7 +21,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
-     
+    <%= javascript_pack_tag 'search_api', 'data-turbolinks-track': 'reload' %>
+      
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -46,19 +47,22 @@
             <%= link_to 'Tournament', tournaments_path, class: "nav-link"%></a>
           </li>
           </li>
-          <% if @tournament.present? %>
+          <% if @tournament.present? && @tournament.persisted? %>
           <li class="nav-item">
             <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: "nav-link"%></a>
           </li>
           <% end %>
 
-          <% if @round.present? %>
+          <% if @round.present? && @round.persisted? %>
           <li class="nav-item">
             <%= link_to 'Games', round_games_path(@round), class: "nav-link"%></a>
           </li>
           <% end %>
           <li class="nav-item">
             <%= link_to 'Results', gameplayers_path, class: "nav-link"%></a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'EndPoint', homes_path, class: "nav-link"%></a>
           </li>
         <% end %>
       </ul>
@@ -91,11 +95,11 @@
     </div>
     
     <%= yield %>
-
-    <footer class="bg-dark d-b py-3 mt-5">
+    
+    <footer class="bg-dark d-b">
       <div class="container-fluid">
         
-        <div class="container footer-icons">
+        <div class="container footer-icons py-2">
           <ul class="list-style-none text-white text-decoration-none">
             <li class="d-inline ">
               <a href="https://github.com/Chesza-Chesza/EloChesza"><i class="fab fa-github-square fa-3x pr-3" style="color:#ffffff"></i></a>
@@ -107,7 +111,7 @@
           <p class="text-muted">contact us: info@codecrc.com</p>
         </div>
 
-        <div class="d-flex align-items-center justify-content-between small">
+        <div class="d-flex align-items-center justify-content-between small pb-3">
             <div class="text-muted">Copyright &copy; Chesza.com 2021. San José Costa Rica</div>
             <div>
               <a href="#">Privacy Policy</a>

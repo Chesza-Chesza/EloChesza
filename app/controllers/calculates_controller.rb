@@ -2,7 +2,7 @@ class CalculatesController < ApplicationController
   # before_action :set_calculate, only: %i[ create show edit update destroy ]
 
   def index
-    @tournament = Tournament.includes(params[:tournament_id]).all
+    #@tournament = Tournament.includes(params[:tournament_id]).all
     @tournaments = Tournament.all
     @rounds = Round.includes(params[:tournament_id]).all
     @games = Game.includes(params[:tournament_id]).all

@@ -4,10 +4,10 @@ class Gameplayer < ApplicationRecord
   belongs_to :player
 
   def calculate_rtng_change
-    self.rtng_change = rtng_change
+    self.rtng_change = set_rtng_change
   end
 
-  def rtng_change
+  def set_rtng_change
     Elo::Calculate.init self.player.elo, self.opponent.elo, self.game.result_of(self.player), self.player.k_value
   end
 

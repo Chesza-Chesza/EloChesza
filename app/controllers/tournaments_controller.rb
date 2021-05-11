@@ -1,10 +1,12 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: %i[ show edit update destroy upload_data_games ]
+  before_action :set_referees, only: %i[ new update ]
   before_action :authenticate_admin_user!
 
   # GET /tournaments or /tournaments.json
   def index
     @tournaments = Tournament.all
+    @tournament = nil
   end
 
   # GET /tournaments/1 or /tournaments/1.json
@@ -73,6 +75,10 @@ class TournamentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tournament
       @tournament = Tournament.find(params[:id])
+    end
+
+    def set_referees
+      @referees = Referee.pluck(:name, :id)
     end
 
     # Only allow a list of trusted parameters through.

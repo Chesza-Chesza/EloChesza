@@ -1,8 +1,7 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
   before_action :authenticate_admin_user!
-  skip_before_action :verify_authenticity_token
-
+ 
   # GET /players or /players.json
   def index
     @players = Player.all
@@ -19,16 +18,6 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-  end
-
-  def api
-    player = Player.find(params[:id])
-    hash = {
-      name: player.full_name,
-      elo: player.elo,
-      player_id: player.id
-    }
-    render json: hash
   end
 
   def api
