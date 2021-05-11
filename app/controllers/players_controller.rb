@@ -1,10 +1,14 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
   before_action :authenticate_admin_user!
+  skip_before_action :verify_authenticity_token
 
   # GET /players or /players.json
   def index
     @players = Player.all
+    if params[:top_10]
+      @players = @players.order_by(elo: :desc).take(10)
+    end
   end
 
   # GET /players/1 or /players/1.json
