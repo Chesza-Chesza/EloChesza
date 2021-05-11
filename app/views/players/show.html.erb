@@ -56,8 +56,8 @@
     <%= @player.last_elo_update %>
   </p>
 
-  <%= link_to 'Edit', edit_player_path(@player) %> |
-  <%= link_to 'Back', players_path %>
-  <br>
-  <%= link_to 'More Info', api_path(@player), class: 'btn btn-danger' %>
+  <%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-dark' %> |
+  <%= link_to 'Back', players_path, class: 'btn btn-dark' %>
+  <br >
+  <%= link_to 'More Info', api_path(@player), class: 'btn btn-warning' %>
 </div>
