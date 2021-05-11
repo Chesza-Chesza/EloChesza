@@ -57,10 +57,24 @@ class PlayersController < ApplicationController
     end
   end
 
+  def show_by_id
+    @players = Player.where(player: params[:player_id]).select{ |b| b.player}
+
+    if @players.size > 0
+      render json: @players.as_json(include: [:player, :elo]), status: 200
+    else
+      render json: '{"error": "not_found"}', status: 200
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
+    end
+
+    def show_by_id
+      params.require(:player_id)
     end
 
     # Only allow a list of trusted parameters through.

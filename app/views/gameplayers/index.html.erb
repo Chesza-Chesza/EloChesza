@@ -14,21 +14,21 @@
         </tr>
       </thead>
   
-    <tbody>
-      <% @gameplayers.each do |gameplayer| %>
-        <tr>
-          <td><%= gameplayer.game_id %></td>
-          <td><%= gameplayer.player.full_name %></td>
-          <td><%= gameplayer.rtng_change %></td>
-          <td><%= link_to 'Show', gameplayer %></td>
-          <td><%= link_to 'Edit', edit_gameplayer_path(gameplayer) %></td>
-          <td><%= link_to 'Destroy', gameplayer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <tbody>
+        <% @gameplayers.each do |gameplayer| %>
+          <tr>
+            <td><%= gameplayer.game_id %></td>
+            <td><%= gameplayer.player.full_name %></td>
+            <td><%= gameplayer.rtng_change %></td>
+            <td><%= link_to 'Show', gameplayer %></td>
+            <td><%= link_to 'Edit', edit_gameplayer_path(gameplayer) %></td>
+            <td><%= link_to 'Destroy', gameplayer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
   
-  <br>
-  
-  <%= link_to 'New Gameplayer', new_gameplayer_path, class: 'btn btn-dark rounded mb-4' %>
+    <%= link_to 'New Gameplayer', new_gameplayer_path, class: 'btn btn-dark rounded mb-4' %>
+  </div>
 </div>
