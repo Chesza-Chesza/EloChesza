@@ -32,7 +32,7 @@
   <body>
   <div class="container">
   <nav class="navbar nav-background fixed-top navbar-expand-lg navbar-light">
-    <%= link_to 'Chesza', root_path, class: "navbar-brand"%>
+    <a class="navbar-brand" href="#"><%= image_tag 'logo_chesza', width:'100px'%></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -92,9 +92,8 @@
     
     <%= yield %>
 
-    <footer class="bg-dark d-b py-3 mt-5">
+    <footer class="bg-dark d-b py-3 mt-5 ">
       <div class="container-fluid">
-        
         <div class="container footer-icons">
           <ul class="list-style-none text-white text-decoration-none">
             <li class="d-inline ">

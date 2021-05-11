@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
   before_action :authenticate_admin_user!
-  skip_before_action :verify_authenticity_token
 
   # GET /players or /players.json
   def index
