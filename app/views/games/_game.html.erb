@@ -4,7 +4,7 @@
   <td><%= game.result %></td>
   <td><%= game.winner %></td>
   <td><%= game.round.number %></td>
-  <td><%= link_to 'Show' %></td>
-  <td><%= link_to 'Edit' %></td>
-  <td><%= link_to 'Destroy' %></td>
+  <td><%= link_to 'Show', [game.round, game] %></td>
+  <td><%= link_to 'Edit', edit_round_game_path(game.round, game) %></td>
+  <td><%= link_to 'Destroy', [game.round, game], method: :delete %></td>
 </tr>

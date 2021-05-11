@@ -64,7 +64,7 @@
                     <%= link_to 'New Tournament', new_tournament_path %>
                   </table>
                 </div>
-                <button id="top10" class="btn btn-danger rounded mb-4">Top 10 players</button>
+                <%= javascript_pack_tag 'search_api', 'data-turbolinks-track': 'reload' %>
               </div>
             </div>
           </div>
