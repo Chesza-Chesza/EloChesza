@@ -37,12 +37,12 @@ The listed gems where the ones used to develop some useful functions on the app:
   
   * [gem 'groupdate'](https://github.com/ankane/groupdate "Groupdate")
 
-After checking that the [Gemfile](https://github.com/Chesza-Chesza/EloChesza/blob/main/Gemfile) is complete run:
+After checking if the [Gemfile](https://github.com/Chesza-Chesza/EloChesza/blob/main/Gemfile) is complete, run:
 
 `bundle install`
 
 # Other dependencies
-Remberber to add the yarn to install all dependencies of the project:
+Remember to add the yarn to install all dependencies of the project:
 
 `yarn install`
 
