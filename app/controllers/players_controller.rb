@@ -1,13 +1,10 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
   before_action :authenticate_admin_user!
-
+ 
   # GET /players or /players.json
   def index
     @players = Player.all
-    if params[:top_10]
-      @players = @players.order_by(elo: :desc).take(10)
-    end
   end
 
   # GET /players/1 or /players/1.json
@@ -21,26 +18,6 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-  end
-
-  def api
-    player = Player.find(params[:id])
-    hash = {
-      name: player.full_name,
-      elo: player.elo,
-      player_id: player.id
-    }
-    render json: hash
-  end
-
-  def api
-    player = Player.find(params[:id])
-    hash = {
-      name: player.full_name,
-      elo: player.elo,
-      player_id: player.id
-    }
-    render json: hash
   end
 
   # POST /players or /players.json

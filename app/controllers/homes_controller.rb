@@ -6,6 +6,10 @@ class HomesController < ApplicationController
   def index
     @player_stats = Gameplayer.joins(:player).group("players.elo").count
     @chartz = Gameplayer.joins(:game).group("games.winner").count
+
+    @player = Player.includes(params[:player_id]).all
+    @players = Player.all
+    render json: @players
   end
 
   # GET /homes/1 or /homes/1.json
@@ -35,7 +39,7 @@ class HomesController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /homes/1 or /homes/1.json
   def update
     respond_to do |format|
@@ -59,10 +63,11 @@ class HomesController < ApplicationController
   end
 
   def dashboard
-    @tournament = Tournament.includes(params[:tournament_id]).all
+    #@tournament = Tournament.includes(params[:tournament_id]).all
+    #@rounds = Round.includes(params[:tournament_id]).all
+    #@games = Game.includes(params[:tournament_id]).all
+    @tournament = nil
     @tournaments = Tournament.all
-    @rounds = Round.includes(params[:tournament_id]).all
-    @games = Game.includes(params[:tournament_id]).all
     @gameplayers = Gameplayer.includes([:player, game: [:round]]).all
     @player_stats = Gameplayer.joins(:player).group("players.elo").count
     @chartz = Gameplayer.joins(:game).group("games.winner").count

@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   resources :players
   resources :homes
   resources :calculates, only: %i[index create]
-  
-  get 'players/:id/api', to: 'players#api', as: 'api'
+
   get 'dashboard', to: 'homes#dashboard'
   get 'file', to: 'tournaments#file'
   root 'calculates#index'

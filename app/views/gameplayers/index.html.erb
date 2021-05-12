@@ -19,7 +19,7 @@
           <tr>
             <td><%= gameplayer.game_id %></td>
             <td><%= gameplayer.player.full_name %></td>
-            <td><%= gameplayer.rtng_change %></td>
+            <td><%= gameplayer.rtng_change %> / Final Result:<%= gameplayer.player.tournament_rtng(gameplayer.game.round.tournament_id).round%></td>
             <td><%= link_to 'Show', gameplayer %></td>
             <td><%= link_to 'Edit', edit_gameplayer_path(gameplayer) %></td>
             <td><%= link_to 'Destroy', gameplayer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,3 +32,4 @@
     <%= link_to 'New Gameplayer', new_gameplayer_path, class: 'btn btn-dark rounded mb-4' %>
   </div>
 </div>
+<div class="bloque"></div>
