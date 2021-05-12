@@ -2,7 +2,8 @@
 
 ![alt text](https://github.com/Chesza-Chesza/EloChesza/blob/test/app/assets/images/logo_chesza.png "CHESZA LOGO")
 
-CHESZA is an app that helps chess players calculate their Elo in an easier way!
+CHESZA is an app that helps chess players calculate their Elo in an easier way! 
+It even provides the necessary tools to calculate the results of a tournament for all players simultaneously.
 
 # Dependencies
 
