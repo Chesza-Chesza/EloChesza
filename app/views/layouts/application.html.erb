@@ -32,7 +32,7 @@
   <body>
   <div class="container">
   <nav class="navbar nav-background fixed-top navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#"><%= image_tag 'isologo.svg', width:'50px'%></a>
+    <a class="navbar-brand" href="<%= root_url %>"><%= image_tag 'isologo.svg', width:'50px'%></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,25 +43,25 @@
             <%= link_to 'Dashboard', dashboard_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to 'Tournament', tournaments_path, class: "nav-link"%></a>
+            <%= link_to 'Tournament', tournaments_path, class: "nav-link"%>
           </li>
           </li>
           <% if @tournament.present? && @tournament.persisted? %>
           <li class="nav-item">
-            <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: "nav-link"%></a>
+            <%= link_to 'Rounds', tournament_rounds_path(@tournament), class: "nav-link"%>
           </li>
           <% end %>
 
           <% if @round.present? && @round.persisted? %>
           <li class="nav-item">
-            <%= link_to 'Games', round_games_path(@round), class: "nav-link"%></a>
+            <%= link_to 'Games', round_games_path(@round), class: "nav-link"%>
           </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to 'Results', gameplayers_path, class: "nav-link"%></a>
+            <%= link_to 'Results', gameplayers_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to 'EndPoint', homes_path, class: "nav-link"%></a>
+            <%= link_to 'EndPoint', homes_path, class: "nav-link"%>
           </li>
         <% end %>
       </ul>
