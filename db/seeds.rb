@@ -56,4 +56,4 @@ Gameplayer.create!([
 ])
 
 
-AdminUser.create!([{email: 'admin@chesza.com', password: 'LkvT35_drLc9D'}])
+AdminUser.create!([{email: 'info@codecrc.com', password: 'LkvT35_drLc9D'}])
